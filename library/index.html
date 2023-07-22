@@ -3,11 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Brooklyn Public Library</title>
 </head>
 
 <body>
+    <header class="header">
+        <div class="container header__container">
+            <h1 class="title header__title">Brooklyn Public Library</h1>
+            <nav class="header__nav">
+                <ul class="list header__nav-list">
+                    <li class="list-item header__nav-item">
+                        <a href="#about" class="link header__nav-link">About</a>
+                    </li>
+                    <li class="list-item header__nav-item">
+                        <a href="#favorites" class="link header__nav-link">Favorites</a>
+                    </li>
+                    <li class="list-item header__nav-item">
+                        <a href="#coffee-shop" class="link header__nav-link">Coffee shop</a>
+                    </li>
+                    <li class="list-item header__nav-item">
+                        <a href="#contacts" class="link header__nav-link">Contacts</a>
+                    </li>
+                    <li class="list-item header__nav-item">
+                        <a href="#library-card" class="link header__nav-link">Library Card</a>
+                    </li>
+                </ul>
+            </nav>
+            <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z"
+                    fill="white" />
+            </svg>
+        </div>
+        <!-- /.container header__container -->
+    </header>
+    <main class="main">
+        <div class="container main__container">
+            <section class="section welcome">
+                <h2 class="title welcome__title">Welcome&MediumSpace;to&nbsp;the&nbsp;Brooklyn Library</h2>
+            </section>
+            <!-- /.section .welcome -->
+            <section class="section about" id="about">
+                <h2 class="title section__title">About</h2>
+            </section>
+            <!-- /.section .about -->
+            <section class="section favorites" id="favorites">
+                <h2 class="title section__title">Favorites</h2>
+            </section>
+            <!-- /.section .favorites -->
+            <section class="section coffee-shop" id="coffee-shop">
+                <h2 class="title section__title">Coffee shop</h2>
+            </section>
+            <!-- /.section .coffee-shop-->
+            <section class="section contacts" id="contacts">
+                <h2 class="title section__title">Our Contacts</h2>
+            </section>
+            <!-- /.section .contacts -->
+            <section class="section library-card" id="library-card">
+                <h2 class="title section__title">Digital Library Cards</h2>
+            </section>
+            <!-- /.section .library-card -->
+        </div>
+        <!-- /.container main__container -->
+    </main>
+    <footer class="footer">
+        <div class="container footer__container"></div>
+        <!-- /.container footer__container -->
+    </footer>
 </body>
 </html>

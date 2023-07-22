@@ -1,0 +1,136 @@
+:root {
+  --fontHeadline: "Forum", cursive;
+  --fontText: "Inter", sans-serif;
+  --light: #ffffff;
+  --dark: #000000;
+  --gray: #8e8e8e;
+  --primary: #0c0c0e;
+  --accent: #bb945f;
+}
+
+/* Common */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fontText);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
+}
+
+.list,
+.title {
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
+/* Header */
+.header__container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: var(--primary);
+}
+
+.header__title {
+  margin-right: auto;
+  font-family: var(--fontHeadline);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  color: var(--light);
+  letter-spacing: 0.6px;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 30px;
+}
+
+.header__nav-link {
+  position: relative;
+  font-family: var(--fontText);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  color: var(--light);
+  transition: all 0.3s;
+}
+
+.header__nav-link:hover {
+  color: var(--accent);
+}
+
+.header__nav-link::after {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  display: block;
+  width: 0;
+  height: 2px;
+  content: "";
+  background-color: var(--accent);
+  transition: all 0.3s;
+  transform: translateX(-50%);
+}
+
+.header__nav-link:hover::after {
+  width: 100%;
+}
+
+.user-icon {
+  margin-left: 40px;
+}
+
+/* Welcome */
+.welcome {
+  height: 600px;
+  padding: 220px 0 0;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      #0c0c0e 0%,
+      #0c0c0e 0.01%,
+      rgba(18, 18, 21, 0.1) 100%
+    )
+    top / auto 50% no-repeat,
+    url("../assets/img/welcome-bg.jpg") center / cover no-repeat;
+}
+
+.welcome__title {
+  width: 600px;
+  padding: 35px 40px;
+  font-family: var(--fontHeadline);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  color: var(--light);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: var(--primary);
+}
