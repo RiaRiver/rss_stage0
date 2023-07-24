@@ -223,3 +223,74 @@ body {
 .slider__pagination-bullet.active::after {
   background-color: var(--accent);
 }
+
+/* Coffee Shop */
+.coffee-shop__text {
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu__items {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.menu__item {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+}
+
+.menu__title {
+  font-family: var(--fontHeadline);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  color: #bb945f;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+.menu__item-name {
+  flex-grow: 1;
+  font-family: var(--fontText);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  color: var(--dark);
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+.menu__item-divider {
+  width: 100px;
+  height: 1px;
+  background-color: var(--accent);
+}
+
+.menu__item-price {
+  font-family: var(--fontHeadline);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  color: var(--dark);
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+.menu__items:last-child .menu__item {
+  justify-content: flex-end;
+}
+
+.menu__items:last-child .menu__item-name {
+  text-align: right;
+}
