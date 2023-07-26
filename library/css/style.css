@@ -6,6 +6,7 @@
   --gray: #8e8e8e;
   --primary: #0c0c0e;
   --accent: #bb945f;
+  --social-icons: #f5efdb;
 }
 
 /* Common */
@@ -23,6 +24,10 @@ body {
   font-style: normal;
   font-weight: 400;
   color: var(--dark);
+}
+
+.svg-symbols {
+  display: none;
 }
 
 .container {
@@ -49,6 +54,10 @@ body {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.5s;
+}
+
+.link:hover {
+  color: var(--accent);
 }
 
 .image {
@@ -120,6 +129,7 @@ body {
   display: flex;
   align-items: center;
   padding: 20px;
+  color: var(--light);
   background: var(--primary);
 }
 
@@ -148,10 +158,6 @@ body {
   font-weight: 400;
   line-height: 50px;
   color: var(--light);
-}
-
-.header__nav-link:hover {
-  color: var(--accent);
 }
 
 .header__nav-link::after {
@@ -370,10 +376,6 @@ body {
   font-weight: 700;
 }
 
-.contacts__link:hover {
-  color: var(--accent);
-}
-
 /* Library Card */
 .library-card__wrapper {
   display: flex;
@@ -490,4 +492,86 @@ body {
 .library-card__info-button {
   min-width: 75px;
   padding: 8px 8px;
+}
+
+/* Footer */
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 20px 44px;
+  color: var(--light);
+  background: var(--primary);
+}
+
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__info {
+  font-family: var(--fontText);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.footer__address {
+  font-style: normal;
+}
+
+.footer__address-link {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--social-icons);
+  transition: all 0.5s;
+}
+
+.social-icon:hover {
+  fill: var(--accent);
+}
+
+.footer__schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__schedule-text {
+  display: block;
+  text-align: right;
+}
+
+.footer__copyright {
+  padding-top: 43px;
+  border-top: 1px solid var(--light);
+}
+
+.footer__copyright-text {
+  flex-basis: 33.33%;
+  font-family: var(--fontText);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 2px;
+}
+
+.footer__rsschool {
+  text-align: center;
+}
+
+.footer__github {
+  text-align: right;
 }
