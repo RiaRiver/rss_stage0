@@ -17,28 +17,28 @@
             <h1 class="title header__title">Brooklyn Public Library</h1>
             <nav class="header__nav">
                 <ul class="list header__nav-list">
-                    <li class="list-item header__nav-item">
+                    <li class="header__nav-item">
                         <a href="#about" class="link header__nav-link">About</a>
                     </li>
-                    <li class="list-item header__nav-item">
+                    <li class="header__nav-item">
                         <a href="#favorites" class="link header__nav-link">Favorites</a>
                     </li>
-                    <li class="list-item header__nav-item">
+                    <li class="header__nav-item">
                         <a href="#coffee-shop" class="link header__nav-link">Coffee shop</a>
                     </li>
-                    <li class="list-item header__nav-item">
+                    <li class="header__nav-item">
                         <a href="#contacts" class="link header__nav-link">Contacts</a>
                     </li>
-                    <li class="list-item header__nav-item">
+                    <li class="header__nav-item">
                         <a href="#library-card" class="link header__nav-link">Library Card</a>
                     </li>
                 </ul>
             </nav>
-            <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                      d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z"
-                      fill="white" />
-            </svg>
+            <button class="profile-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon user-icon" width="28" height="28">
+                    <use href="#user-icon"></use>
+                </svg>
+            </button>
         </div>
         <!-- /.container header__container -->
     </header>
@@ -236,21 +236,21 @@
                     <ul class="list footer__socials">
                         <li class="footer__social-item">
                             <a href="http://twitter.com/bklynlibrary" class="link footer__social-link" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon">
                                     <use href="#twitter-icon"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="footer__social-item">
                             <a href="http://instagram.com/bklynlibrary" class="link footer__social-link" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon">
                                     <use href="#instagram-icon"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="footer__social-item">
                             <a href="https://www.facebook.com/BrooklynPublicLibrary" class="link footer__social-link" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon">
                                     <use href="#facebook-icon"></use>
                                 </svg>
                             </a>
@@ -295,6 +295,14 @@
             <symbol id="facebook-icon" viewBox="0 0 24 24">
                 <path
                       d="M15.12 5.32003H17V2.14003C16.0897 2.04538 15.1751 1.99865 14.26 2.00003C11.54 2.00003 9.67999 3.66003 9.67999 6.70003V9.32003H6.60999V12.88H9.67999V22H13.36V12.88H16.42L16.88 9.32003H13.36V7.05003C13.36 6.00003 13.64 5.32003 15.12 5.32003Z" />
+            </symbol>
+        </defs>
+    </svg>
+    <svg class="svg-symbols">
+        <defs>
+            <symbol id="user-icon" viewBox="0 0 28 28">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
             </symbol>
         </defs>
     </svg>
