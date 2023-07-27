@@ -198,9 +198,8 @@ body {
 
 /* Welcome */
 .welcome {
-  height: 600px;
-  padding: 220px 0 0;
-  overflow: hidden;
+  min-height: 600px;
+  padding: 220px 0 100px;
   background:
     linear-gradient(
       180deg,
@@ -213,7 +212,7 @@ body {
 }
 
 .welcome__title {
-  width: 600px;
+  max-width: 600px;
   padding: 35px 40px;
   font-family: var(--fontHeadline);
   font-size: 40px;
