@@ -237,13 +237,18 @@ body {
 
 .slider__slides {
   display: flex;
-  gap: 25px;
+  /* stylelint-disable-next-line number-max-precision */
+  gap: 1.796%;
   margin-bottom: 35px;
 }
 
 .slider__slide {
-  width: 450px;
-  height: 560px;
+  /* stylelint-disable-next-line number-max-precision */
+  width: 32.143%;
+  max-width: 450px;
+  height: auto;
+  max-height: 560px;
+  object-fit: cover;
 }
 
 .slider__pagination {
@@ -258,7 +263,7 @@ body {
   width: 26px;
   height: 26px;
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 50%;
 }
 
 .slider__pagination-bullet::after {
@@ -266,7 +271,11 @@ body {
   height: 16px;
   content: "";
   background-color: var(--primary);
-  border-radius: 50px;
+  border-radius: 50%;
+}
+
+.slider__pagination-bullet:hover::after {
+  border: 2px solid var(--accent);
 }
 
 .slider__pagination-bullet.active::after {
