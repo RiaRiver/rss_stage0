@@ -83,7 +83,13 @@ body {
   transition: all 0.5s;
 }
 
-.button:hover {
+.button:disabled {
+  color: var(--accent);
+  cursor: auto;
+  border-color: var(--accent);
+}
+
+.button:not(:disabled):hover {
   background: var(--accent);
   border-color: var(--accent);
 }
@@ -282,6 +288,151 @@ body {
 
 .slider__pagination-bullet.active::after {
   background-color: var(--accent);
+}
+
+/* Favorites */
+.favorites__selection-text {
+  margin-bottom: 35px;
+  font-family: var(--fontText);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--dark);
+}
+
+.favorites__seasons {
+  display: grid;
+  grid-template-columns: 124px 119px 136px 131px;
+  gap: 70px;
+  margin-bottom: 35px;
+  transform: translateX(-5px);
+}
+
+.favorites__radio {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  margin-right: 20px;
+  appearance: none;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.favorites__season {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  font-family: var(--fontText);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.favorites__season:hover,
+.favorites__season:hover .favorites__radio {
+  color: var(--accent);
+}
+
+.favorites__radio:checked + .favorites__season-text {
+  font-weight: 700;
+}
+
+.favorites__radio:checked {
+  padding: 3px;
+  background-color: currentColor;
+  background-clip: content-box;
+}
+
+/* Favorites Books */
+.favorites__books {
+  display: none;
+}
+
+.favorites__books.active {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 10%;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.favorites__book {
+  position: relative;
+  width: 45%;
+  max-width: 590px;
+  padding-right: 40px;
+}
+
+.book-text {
+  font-family: var(--fontText);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  color: var(--dark);
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+.book__info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-height: 555px;
+  padding: 14px 19px;
+  background: var(--light);
+  border: 1px solid var(--dark);
+}
+
+.book__tag {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-family: var(--fontHeadline);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.book__tag::after {
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  height: 1px;
+  content: "";
+  background-color: var(--accent);
+}
+
+.book__header {
+  margin-bottom: 20px;
+}
+
+.book__title {
+  text-transform: uppercase;
+}
+
+.book__description {
+  max-width: 357px;
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.book__button {
+  margin-top: auto;
+}
+
+.book__image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
 }
 
 /* Coffee Shop */
