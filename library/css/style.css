@@ -216,7 +216,7 @@ body {
       rgba(18, 18, 21, 0.1) 100%
     )
     top / auto 50% no-repeat,
-    url("../assets/img/welcome-bg.jpg") center / cover no-repeat;
+    url("../assets/img/welcome/welcome-bg.jpg") center / cover no-repeat;
 }
 
 .welcome__title {
@@ -251,6 +251,7 @@ body {
 }
 
 .slider__slide {
+  flex-shrink: 0;
   /* stylelint-disable-next-line number-max-precision */
   width: 32.143%;
   max-width: 450px;
@@ -349,15 +350,15 @@ body {
 
 /* Favorites Books */
 .favorites__books {
-  display: none;
-}
-
-.favorites__books.active {
   display: flex;
   flex-wrap: wrap;
   gap: 40px 10%;
   align-items: stretch;
   justify-content: space-between;
+}
+
+.favorites__books:not(.active) {
+  display: none;
 }
 
 .favorites__book {
@@ -430,8 +431,9 @@ body {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 200px;
-  height: 300px;
+  width: 35%;
+  max-width: 200px;
+  max-height: 300px;
   object-fit: cover;
 }
 
