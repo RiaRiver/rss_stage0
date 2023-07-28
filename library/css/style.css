@@ -356,6 +356,7 @@ body {
 /* Contacts */
 .contacts__wrapper {
   display: flex;
+  gap: 10%;
   justify-content: space-between;
 }
 
@@ -363,28 +364,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
-}
-
-.contacts__subtitle {
-  font-family: var(--fontText);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 40px;
-  color: var(--dark);
-  text-transform: capitalize;
-  letter-spacing: 2px;
-}
-
-.contacts__phones,
-.contacts__staff {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contacts__phone,
-.contacts__staff-info {
   font-family: var(--fontText);
   font-size: 20px;
   font-style: normal;
@@ -395,8 +374,27 @@ body {
   letter-spacing: 2px;
 }
 
+.contacts__subtitle,
 .contacts__staff-name {
   font-weight: 700;
+}
+
+.contacts__phones,
+.contacts__staff {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contacts__map {
+  width: 50%;
+  max-width: 696px;
+}
+
+.contacts__map-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 /* Library Card */
