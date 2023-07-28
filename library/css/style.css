@@ -66,6 +66,8 @@ body {
 }
 
 .button {
+  min-width: 75px;
+  padding: 8px 12px;
   font-family: var(--fontText);
   font-size: 10px;
   font-style: normal;
@@ -400,6 +402,7 @@ body {
 /* Library Card */
 .library-card__wrapper {
   display: flex;
+  gap: 10%;
   justify-content: space-between;
 }
 
@@ -407,7 +410,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 600px;
+  width: 60%;
+  max-width: 600px;
+  padding-bottom: 1px;
 }
 
 .library-card__form-title {
@@ -436,11 +441,6 @@ body {
   flex-direction: column;
   width: 100%;
   padding: 20px 20px 25px;
-  background-color: var(--accent);
-}
-
-.library-card__form-subtitle {
-  margin-bottom: 20px;
   font-family: var(--fontHeadline);
   font-size: 30px;
   font-style: normal;
@@ -448,6 +448,11 @@ body {
   line-height: 50px;
   color: var(--dark);
   letter-spacing: 0.6px;
+  background-color: var(--accent);
+}
+
+.library-card__form-subtitle {
+  margin-bottom: 20px;
 }
 
 .library-card__form-field:not(:last-child) {
@@ -455,15 +460,14 @@ body {
 }
 
 .library-card__form-field {
+  width: 100%;
   padding: 8px 20px;
-  font-family: var(--fontHeadline);
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 50px;
   color: var(--accent);
   letter-spacing: 0.6px;
   border-radius: 10px;
+  outline-color: var(--accent);
+  outline-offset: -3px;
 }
 
 .library-card__form-field::placeholder {
@@ -471,8 +475,9 @@ body {
 }
 
 .library-card__form-button {
-  padding: 9px 39px;
+  min-width: 242px;
   font-size: 20px;
+  line-height: 26px;
 }
 
 .library-card__info {
@@ -508,11 +513,6 @@ body {
 .library-card__info-buttons {
   display: flex;
   gap: 20px;
-}
-
-.library-card__info-button {
-  min-width: 75px;
-  padding: 8px 8px;
 }
 
 /* Footer */
