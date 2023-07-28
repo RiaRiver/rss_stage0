@@ -519,7 +519,7 @@ body {
 .footer__container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 29px;
   padding: 20px 20px 44px;
   color: var(--light);
   background: var(--primary);
@@ -575,12 +575,12 @@ body {
 }
 
 .footer__copyright {
-  padding-top: 43px;
+  padding-top: 44px;
   border-top: 1px solid var(--light);
 }
 
 .footer__copyright-text {
-  flex-basis: 33.33%;
+  flex: 1;
   font-family: var(--fontText);
   font-size: 20px;
   font-style: normal;
