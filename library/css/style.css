@@ -809,3 +809,8 @@ input:-webkit-autofill:focus {
   outline-color: var(--accent);
   transition: none;
 }
+
+.button:not(:disabled):active {
+  box-shadow: 0 0 0px 1px var(--dark);
+  transition: all 0.2s;
+}
