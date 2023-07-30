@@ -500,10 +500,10 @@
                         <div class="library-card__form-wrapper">
                             <fieldset class="fields library-card__fields">
                                 <span class="text library-card__form-subtitle">Brooklyn Public Library</span>
-                                <input type="text" class="field library-card__form-field" placeholder="Reader's name" pattern="[a-zA-Z0-9\-\s]*"
+                                <input type="text" class="field library-card__form-field" placeholder="Reader's name" name="name" pattern="[a-zA-Z0-9\-\s]*"
                                        title="Please follow the format: only letters, numbers, spaces and hyphens are allowed. Length from 3 to 50." minlength="3" maxlength="50" required>
-                                <input type="text" class="field library-card__form-field" placeholder="Card number" pattern="\w{1}\d{8}" title="Please follow the format: F00234030" minlength="9"
-                                       maxlength="9" required>
+                                <input type="text" class="field library-card__form-field" placeholder="Card number" name="card-number" pattern="\w{1}\d{8}" title="Please follow the format: F00234030"
+                                       minlength="9" maxlength="9" required>
                             </fieldset>
                             <button class="button library-card__form-button">Check the card</button>
                         </div>

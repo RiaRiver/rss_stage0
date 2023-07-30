@@ -749,3 +749,11 @@ body {
 .footer__github {
   text-align: right;
 }
+
+/* Fix for autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--accent);
+  box-shadow: 0 0 0 1000px var(--light) inset;
+}
