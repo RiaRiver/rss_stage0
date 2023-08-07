@@ -35,6 +35,7 @@ body {
 }
 
 .container {
+  width: 100%;
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -50,11 +51,17 @@ body {
 .list,
 .title,
 .text,
+.btn,
 .fields,
 .field {
   padding: 0;
   margin: 0;
   border: none;
+}
+
+.btn {
+  cursor: pointer;
+  background: none;
 }
 
 .link {
@@ -67,6 +74,10 @@ body {
 
 .link:hover {
   color: var(--accent);
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 .image,
@@ -155,7 +166,6 @@ body {
 /* Header */
 .header__container {
   display: flex;
-  gap: 40px;
   align-items: center;
   padding: 20px;
   color: var(--light);
@@ -187,6 +197,7 @@ body {
   font-weight: 400;
   line-height: 50px;
   color: var(--light);
+  white-space: nowrap;
 }
 
 .header__nav-link::after {
@@ -206,9 +217,8 @@ body {
   width: 100%;
 }
 
-.profile-button {
-  padding: 0;
-  margin: 0;
+.profile-btn {
+  margin-left: 40px;
   cursor: pointer;
   background-color: transparent;
   border: none;
@@ -313,7 +323,7 @@ body {
 
 /* Favorites */
 .favorites__selection-text {
-  margin-bottom: 35px;
+  margin-bottom: 40px;
   font-family: var(--fontText);
   font-size: 20px;
   font-style: normal;
@@ -324,10 +334,10 @@ body {
 
 .favorites__seasons {
   display: grid;
-  grid-template-columns: 124px 119px 136px 131px;
-  gap: 70px;
-  margin-bottom: 35px;
-  transform: translateX(-5px);
+  grid-template: "a b c d"  auto /124px 119px 136px 131px;
+  gap: 10%;
+  max-width: 700px;
+  margin-bottom: 40px;
 }
 
 .favorites__radio {
@@ -342,9 +352,9 @@ body {
 }
 
 .favorites__season {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 5px;
   font-family: var(--fontText);
   font-size: 20px;
   font-style: normal;
@@ -353,6 +363,15 @@ body {
   color: var(--dark);
   cursor: pointer;
   transition: all 0.5s;
+}
+
+.favorites__season::before {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  content: "";
 }
 
 .favorites__season:hover,
@@ -374,7 +393,7 @@ body {
 .favorites__books {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px 10%;
+  gap: 40px 0;
   align-items: stretch;
   justify-content: space-between;
 }
@@ -385,7 +404,7 @@ body {
 
 .favorites__book {
   position: relative;
-  width: 45%;
+  width: 49%;
   max-width: 590px;
   padding-right: 40px;
 }
@@ -467,11 +486,12 @@ body {
 
 .menu {
   display: flex;
+  gap: 40px;
   justify-content: space-between;
 }
 
 .menu__block {
-  max-width: 40%;
+  max-width: 45%;
 }
 
 .menu__items {
@@ -533,7 +553,7 @@ body {
 /* Contacts */
 .contacts__wrapper {
   display: flex;
-  gap: 10%;
+  gap: 100px 0;
   justify-content: space-between;
 }
 
@@ -564,7 +584,7 @@ body {
 }
 
 .contacts__map {
-  width: 50%;
+  width: 70%;
   max-width: 696px;
 }
 
@@ -811,6 +831,49 @@ input:-webkit-autofill:focus {
 }
 
 .button:not(:disabled):active {
-  box-shadow: 0 0 0px 1px var(--dark);
+  box-shadow: 0 0 0 1px var(--dark);
   transition: all 0.2s;
+}
+
+/* Adaptive */
+@media screen and (max-width: 1279px) {
+  .favorites__selection {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .favorites__books {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .favorites__book {
+    width: 100%;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: start;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .menu__block {
+    max-width: 100%;
+  }
+
+  .menu__block:last-child {
+    align-self: end;
+  }
+
+  .contacts__wrapper {
+    flex-direction: column;
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .contacts__map {
+    width: 100%;
+    margin: auto;
+  }
 }
