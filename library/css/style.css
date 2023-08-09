@@ -233,6 +233,10 @@ body {
   transition: all 0.5s;
 }
 
+.burger-btn {
+  display: none;
+}
+
 /* Welcome */
 .welcome {
   min-height: 600px;
@@ -768,6 +772,9 @@ body {
 }
 
 .footer__copyright {
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
   padding-top: 44px;
   border-top: 1px solid var(--light);
 }
@@ -783,11 +790,16 @@ body {
 }
 
 .footer__rsschool {
+  flex: 2;
   text-align: center;
 }
 
 .footer__github {
   text-align: right;
+}
+
+.github-initial {
+  display: none;
 }
 
 /* Fix for autofill */
@@ -875,5 +887,144 @@ input:-webkit-autofill:focus {
   .contacts__map {
     width: 100%;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .header__container {
+    position: relative;
+    overflow-x: clip;
+  }
+
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 100%;
+    padding: 10px 107px 100px;
+    background-color: var(--primary);
+    transition: all 0.5s;
+    transform: translateX(0);
+  }
+
+  .header__nav.active {
+    transform: translate(-100%);
+  }
+
+  .header__nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .burger-btn {
+    position: relative;
+    display: block;
+    height: 22px;
+    padding: 0;
+    margin-bottom: 2px;
+    margin-left: 40px;
+    color: var(--light);
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: all 0.5s;
+  }
+
+  .burger-line {
+    display: block;
+    width: 45px;
+    height: 2px;
+    background-color: currentColor;
+    transition: all 0.5s;
+  }
+
+  .burger-btn::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45px;
+    height: 2px;
+    content: "";
+    background-color: currentColor;
+    transition: all 0.5s;
+  }
+
+  .burger-btn::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 45px;
+    height: 2px;
+    content: "";
+    background-color: currentColor;
+    transition: all 0.5s;
+  }
+
+  .burger-btn.active {
+    height: 32px;
+    margin-bottom: 0;
+  }
+
+  .burger-btn.active .burger-line {
+    opacity: 0;
+  }
+
+  .burger-btn.active::before {
+    top: 15px;
+    transform: rotate(45deg);
+  }
+
+  .burger-btn.active::after {
+    bottom: 15px;
+    transform: rotate(-45deg);
+  }
+
+  .burger-btn:hover {
+    color: var(--accent);
+    transition: all 0.5s;
+  }
+
+  .coffee-shop__text-spacing {
+    letter-spacing: 1.9px;
+  }
+
+  .library-card__wrapper {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .library-card__form {
+    width: 100%;
+  }
+
+  .library-card__info {
+    gap: 40px;
+    align-items: center;
+    max-width: 600px;
+  }
+
+  .library-card__info-text {
+    text-align: center;
+  }
+
+  .footer__copyright-text {
+    flex: 0;
+  }
+
+  .footer__rsschool {
+    flex: 1;
+    margin-left: 35px;
+  }
+
+  .footer__github {
+    white-space: nowrap;
+  }
+
+  .github-name {
+    display: none;
+  }
+
+  .github-initial {
+    display: unset;
   }
 }
