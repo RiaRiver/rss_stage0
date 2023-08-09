@@ -1,3 +1,36 @@
+// Бургер меню
+const burgerBtn = document.querySelector('.burger-btn');
+const nav = document.querySelector('.header__nav');
+const navLinks = document.querySelectorAll('.header__nav-link');
+
+// Управление видимостью меню
+const toggleNav = (e) => {
+    nav.classList.toggle('active');
+    burgerBtn.classList.toggle('active');
+};
+
+const isNavActive = () => nav.classList.contains('active');
+
+// Слушатель кнопки бургера
+burgerBtn.addEventListener('click', toggleNav);
+
+// Слушатель остальных кликов
+document.addEventListener('click', (e) => {
+    // Клик на бургер или меню
+    const clickBurgerOrNav = e.target.closest('.burger-btn') || e.target.closest('.header__nav');
+
+    // Надо ли закрывать меню
+    const shouldCloseNav = [...navLinks].includes(e.target) || !clickBurgerOrNav;
+
+    // Если меню открыто и надо закрыть
+    if (isNavActive() && shouldCloseNav) {
+        toggleNav();
+    };
+});
+
+
+
+// Самооценка
 let color = "limegreen";
 const done = `color: ${color};`;
 const textB = `font: 1.2rem/1 Tahoma;`;
