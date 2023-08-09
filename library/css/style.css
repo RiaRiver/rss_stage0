@@ -1028,3 +1028,23 @@ input:-webkit-autofill:focus {
     display: unset;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .favorites__seasons {
+    grid-template:
+      "a b" auto
+      "c d" auto/ max-content max-content;
+    gap: 20px 10%;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .favorites__selection-text {
+    text-align: center;
+  }
+
+  .footer__rsschool {
+    margin-left: 0;
+  }
+}
