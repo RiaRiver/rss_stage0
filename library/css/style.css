@@ -209,6 +209,7 @@ body {
 
 .user-icon {
   fill: var(--light);
+  transition: all 0.5s;
 }
 
 .burger-btn {
@@ -287,8 +288,9 @@ body {
 }
 
 .slider-button-icon {
-  fill: none;
+  fill: transparent;;
   stroke: var(--dark);
+  transition: all 0.5s;
 }
 
 .slider__button {
@@ -300,7 +302,7 @@ body {
 
 .slider__button--next {
   right: 0;
-  left: 0;
+  left: initial;
   transform: translateY(-60%) rotate(180deg);
 }
 
@@ -329,7 +331,7 @@ body {
   content: "";
   background-color: var(--primary);
   border-radius: 50%;
-  transition: all 0.05s;
+  transition: all 0.1s;
 }
 
 .slider__pagination-bullet.active::after {
@@ -845,7 +847,7 @@ input:-webkit-autofill:focus {
 
 .button:not(:disabled):active {
   box-shadow: 0 0 0 1px var(--dark);
-  transition: all 0.2s;
+  transition: all 0.5s;
 }
 
 /* Hovers */
@@ -869,11 +871,14 @@ input:-webkit-autofill:focus {
 
   .user-icon:hover {
     fill: var(--accent);
-    transition: all 0.5s;
   }
 
   .slider__pagination-bullet:hover::after {
     border: 2px solid var(--accent);
+  }
+
+  .slider__button:hover .slider-button-icon {
+    fill: var(--dark);
   }
 
   .favorites__season:hover,
@@ -887,7 +892,6 @@ input:-webkit-autofill:focus {
 
   .burger-btn:hover {
     color: var(--accent);
-    transition: all 0.5s;
   }
 
   input:-webkit-autofill:hover {
