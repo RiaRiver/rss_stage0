@@ -39,11 +39,23 @@
                     </li>
                 </ul>
             </nav>
-            <button class="btn profile-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon user-icon" width="28" height="28">
-                    <use href="#user-icon"></use>
-                </svg>
-            </button>
+            <div class="user header__user">
+                <button class="btn user__btn" onclick="if(window['user-dropdown'].hasAttribute('open')) window['user-dropdown'].close(); else window['user-dropdown'].show()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon user-icon" width="28" height="28">
+                        <use href="#user-icon"></use>
+                    </svg>
+                </button>
+                <dialog class="user__dropdown" id="user-dropdown">
+                    <h4 class="title user__title">Profile</h4>
+                    <ul class="list user__actions">
+                        <li class="user__action"><button class="btn user__action-btn">Log In</button></li>
+                        <li class="user__action"><button class="btn user__action-btn">Register</button></li>
+                        <li class="user__action hidden"><button class="btn user__action-btn">My profile</button></li>
+                        <li class="user__action hidden"><button class="btn user__action-btn">Log Out</button></li>
+                    </ul>
+                </dialog>
+            </div>
+            <!-- /.user header__user -->
             <button class="btn burger-btn">
                 <span class="burger-line"></span>
             </button>
@@ -556,8 +568,8 @@
                         <p class="text library-card__info-text">You will be able to see a reader card after logging into account or you can register a
                             new account</p>
                         <div class="library-card__info-buttons">
-                            <button class="button library-card__info-button">Sign Up</button>
-                            <button class="button library-card__info-button">Log in</button>
+                            <button class="button library-card__info-button" onclick="window['modal-register'].showModal()">Sign Up</button>
+                            <button class="button library-card__info-button" onclick="window['modal-login'].showModal()">Log in</button>
                         </div>
                         <!-- /.library-card__info-buttons -->
                     </div>
@@ -634,7 +646,51 @@
         <!-- /.container footer__container -->
     </footer>
 
-    <svg class="svg-symbols">
+    <dialog class="modal modal-registr" id="modal-register">
+        <h3 class="title modal__title">Register</h3>
+        <button class="btn modal__close-btn" onclick="window['modal-register'].close()"></button>
+        <form class="modal__form modal__register-form">
+            <label class="modal__label">
+                <span class="modal__label-text">First name</span>
+                <input type="text" class="field modal__input">
+            </label>
+            <label class="modal__label">
+                <span class="modal__label-text">Last name</span>
+                <input type="text" class="field modal__input">
+            </label>
+            <label class="modal__label">
+                <span class="modal__label-text">E-mail</span>
+                <input type="text" class="field modal__input">
+            </label>
+            <label class="modal__label">
+                <span class="modal__label-text">Password</span>
+                <input type="text" class="field modal__input">
+            </label>
+            <button class="button modal__button">Sign Up</button>
+        </form>
+        <span class="modal__question">Already have an account?</span>
+        <button class="btn btn_link" onclick="window['modal-register'].close();window['modal-login'].showModal()">Login</button>
+    </dialog>
+
+    <dialog class="modal modal-login" id="modal-login">
+        <h3 class="title modal__title">Login</h3>
+        <button class="btn modal__close-btn" onclick="window['modal-login'].close()"></button>
+        <form class=" modal__form modal__login-form">
+            <label class="modal__label">
+                <span class="modal__label-text">E-mail or readers card</span>
+                <input type="text" class="field modal__input">
+            </label>
+            <label class="modal__label">
+                <span class="modal__label-text">Password</span>
+                <input type="text" class="field modal__input">
+            </label>
+            <button class="button modal__button">Log In</button>
+        </form>
+        <span class="modal__question">Don’t have an account?</span>
+        <button class="btn btn_link" onclick="window['modal-login'].close();window['modal-register'].showModal()">Register</button>
+    </dialog>
+
+    <svg class="svg-symbols hidden">
         <defs>
             <symbol id="twitter-icon" viewBox="0 0 24 24">
                 <path
@@ -651,7 +707,7 @@
         </defs>
     </svg>
 
-    <svg class="svg-symbols">
+    <svg class="svg-symbols hidden">
         <defs>
             <symbol id="user-icon" viewBox="0 0 28 28">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -660,7 +716,7 @@
         </defs>
     </svg>
 
-    <svg class="svg-symbols">
+    <svg class="svg-symbols hidden">
         <defs>
             <symbol id="slider-button" viewBox="0 0 24 25">
                 <path d="M15 7.5L9 12.5L15 17.5" stroke-linecap="round" stroke-linejoin="round" />
