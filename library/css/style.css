@@ -1087,7 +1087,7 @@ input:-webkit-autofill:focus {
 
 /* Adaptive */
 @media screen and (max-width: 1279px) {
-  .favorites__selection {
+  .favorites__block {
     max-width: 768px;
     margin: 0 auto;
   }
