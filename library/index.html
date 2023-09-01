@@ -40,7 +40,7 @@
                 </ul>
             </nav>
             <div class="user header__user">
-                <button class="btn user__btn" onclick="if(window['user-dropdown'].hasAttribute('open')) window['user-dropdown'].close(); else window['user-dropdown'].show()">
+                <button class="btn user__btn">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon user-icon" width="28" height="28">
                         <use href="#user-icon"></use>
                     </svg>
@@ -48,8 +48,8 @@
                 <dialog class="user__dropdown" id="user-dropdown">
                     <h4 class="title user__title">Profile</h4>
                     <ul class="list user__actions">
-                        <li class="user__action"><button class="btn user__action-btn">Log In</button></li>
-                        <li class="user__action"><button class="btn user__action-btn">Register</button></li>
+                        <li class="user__action"><button class="btn user__action-btn" data-showmodal="modal-login">Log In</button></li>
+                        <li class="user__action"><button class="btn user__action-btn" data-showmodal="modal-register">Register</button></li>
                         <li class="user__action hidden"><button class="btn user__action-btn">My profile</button></li>
                         <li class="user__action hidden"><button class="btn user__action-btn">Log Out</button></li>
                     </ul>
@@ -568,8 +568,8 @@
                         <p class="text library-card__info-text">You will be able to see a reader card after logging into account or you can register a
                             new account</p>
                         <div class="library-card__info-buttons">
-                            <button class="button library-card__info-button" onclick="window['modal-register'].showModal()">Sign Up</button>
-                            <button class="button library-card__info-button" onclick="window['modal-login'].showModal()">Log in</button>
+                            <button class="button library-card__info-button" data-showmodal="modal-register">Sign Up</button>
+                            <button class="button library-card__info-button" data-showmodal="modal-login">Log in</button>
                         </div>
                         <!-- /.library-card__info-buttons -->
                     </div>
@@ -648,7 +648,7 @@
 
     <dialog class="modal modal-registr" id="modal-register">
         <h3 class="title modal__title">Register</h3>
-        <button class="btn modal__close-btn" onclick="window['modal-register'].close()"></button>
+        <button class="btn modal__close-btn" data-close="modal-register"></button>
         <form class="modal__form modal__register-form">
             <label class="modal__label">
                 <span class="modal__label-text">First name</span>
@@ -669,12 +669,12 @@
             <button class="button modal__button">Sign Up</button>
         </form>
         <span class="modal__question">Already have an account?</span>
-        <button class="btn btn_link" onclick="window['modal-register'].close();window['modal-login'].showModal()">Login</button>
+        <button class="btn btn_link" data-close="modal-register" data-showmodal="modal-login">Login</button>
     </dialog>
 
     <dialog class="modal modal-login" id="modal-login">
         <h3 class="title modal__title">Login</h3>
-        <button class="btn modal__close-btn" onclick="window['modal-login'].close()"></button>
+        <button class="btn modal__close-btn" data-close="modal-login"></button>
         <form class=" modal__form modal__login-form">
             <label class="modal__label">
                 <span class="modal__label-text">E-mail or readers card</span>
@@ -687,7 +687,7 @@
             <button class="button modal__button">Log In</button>
         </form>
         <span class="modal__question">Don’t have an account?</span>
-        <button class="btn btn_link" onclick="window['modal-login'].close();window['modal-register'].showModal()">Register</button>
+        <button class="btn btn_link" data-close="modal-login" data-showmodal="modal-register">Register</button>
     </dialog>
 
     <svg class="svg-symbols hidden">
@@ -724,6 +724,6 @@
         </defs>
     </svg>
 
-    <script defer src="index.js"></script>
+    <script type="module" src="js/index.js"></script>
 </body>
 </html>
