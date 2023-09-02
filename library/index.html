@@ -563,17 +563,17 @@
                         <!-- /.library-card__form-wrapper -->
                     </form>
                     <!-- /.library-card__form -->
-                    <div class="library-card__info">
-                        <span class="text library-card__info-subtitle">Get a reader card</span>
-                        <p class="text library-card__info-text">You will be able to see a reader card after logging into account or you can register a
+                    <div class="library-card__description">
+                        <span class="text library-card__description-subtitle">Get a reader card</span>
+                        <p class="text library-card__description-text">You will be able to see a reader card after logging into account or you can register a
                             new account</p>
-                        <div class="library-card__info-buttons">
-                            <button class="button library-card__info-button" data-showmodal="modal-register">Sign Up</button>
-                            <button class="button library-card__info-button" data-showmodal="modal-login">Log in</button>
+                        <div class="library-card__description-buttons">
+                            <button class="button library-card__description-button" data-showmodal="modal-register">Sign Up</button>
+                            <button class="button library-card__description-button" data-showmodal="modal-login">Log in</button>
                         </div>
-                        <!-- /.library-card__info-buttons -->
+                        <!-- /.library-card__description-buttons -->
                     </div>
-                    <!-- /.library-card__info -->
+                    <!-- /.library-card__description -->
                 </div>
                 <!-- /.library-card__wrapper -->
             </section>
@@ -595,21 +595,21 @@
                     <ul class="list footer__socials">
                         <li class="footer__social-item">
                             <a href="http://twitter.com/bklynlibrary" class="link footer__social-link" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon" width="24" height="24">
                                     <use href="#twitter-icon"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="footer__social-item">
                             <a href="http://instagram.com/bklynlibrary" class="link footer__social-link" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon" width="24" height="24">
                                     <use href="#instagram-icon"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="footer__social-item">
                             <a href="https://www.facebook.com/BrooklynPublicLibrary" class="link footer__social-link" target="_blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon social-icon" width="24" height="24">
                                     <use href="#facebook-icon"></use>
                                 </svg>
                             </a>
@@ -646,51 +646,163 @@
         <!-- /.container footer__container -->
     </footer>
 
-    <dialog class="modal modal-registr" id="modal-register">
-        <h3 class="title modal__title">Register</h3>
-        <button class="btn modal__close-btn" data-close="modal-register"></button>
-        <form class="modal__form modal__register-form">
-            <label class="modal__label">
-                <span class="modal__label-text">First name</span>
-                <input type="text" class="field modal__input">
-            </label>
-            <label class="modal__label">
-                <span class="modal__label-text">Last name</span>
-                <input type="text" class="field modal__input">
-            </label>
-            <label class="modal__label">
-                <span class="modal__label-text">E-mail</span>
-                <input type="text" class="field modal__input">
-            </label>
-            <label class="modal__label">
-                <span class="modal__label-text">Password</span>
-                <input type="text" class="field modal__input">
-            </label>
-            <button class="button modal__button">Sign Up</button>
-        </form>
-        <span class="modal__question">Already have an account?</span>
-        <button class="btn btn_link" data-close="modal-register" data-showmodal="modal-login">Login</button>
+    <dialog class="modal modal-register" id="modal-register">
+        <div class="modal__container modal-register__container">
+            <h3 class="title modal__title modal-register__title">Register</h3>
+            <button class="btn modal__close-btn" data-close="modal-register"></button>
+            <form class="modal__form modal-register__form" name="registerForm">
+                <label class="modal__label">
+                    <span class="modal__label-text">First name</span>
+                    <input type="text" class="field modal__input" name="firstName" required>
+                </label>
+                <label class="modal__label">
+                    <span class="modal__label-text">Last name</span>
+                    <input type="text" class="field modal__input" name="lastName" required>
+                </label>
+                <label class="modal__label">
+                    <span class="modal__label-text">E-mail</span>
+                    <input type="email" class="field modal__input" name="email" required>
+                </label>
+                <label class="modal__label">
+                    <span class="modal__label-text">Password</span>
+                    <input type="password" class="field modal__input" name="password" required minlength="8">
+                </label>
+                <button class="button modal__button modal-register__button">Sign Up</button>
+            </form>
+            <div class="modal__wrap">
+                <span class="modal__question">Already have an account?</span>
+                <button class="btn btn_link" data-close="modal-register" data-showmodal="modal-login">Login</button>
+            </div>
+        </div>
+        <!-- /.modal__container modal-register__container -->
     </dialog>
 
     <dialog class="modal modal-login" id="modal-login">
-        <h3 class="title modal__title">Login</h3>
-        <button class="btn modal__close-btn" data-close="modal-login"></button>
-        <form class=" modal__form modal__login-form">
-            <label class="modal__label">
-                <span class="modal__label-text">E-mail or readers card</span>
-                <input type="text" class="field modal__input">
-            </label>
-            <label class="modal__label">
-                <span class="modal__label-text">Password</span>
-                <input type="text" class="field modal__input">
-            </label>
-            <button class="button modal__button">Log In</button>
-        </form>
-        <span class="modal__question">Don’t have an account?</span>
-        <button class="btn btn_link" data-close="modal-login" data-showmodal="modal-register">Register</button>
+        <div class="modal__container modal-login__container">
+            <h3 class="title modal__title modal-login__title">Login</h3>
+            <button class="btn modal__close-btn" data-close="modal-login"></button>
+            <form class=" modal__form modal-login__form" name="loginForm">
+                <label class="modal__label">
+                    <span class="modal__label-text">E-mail or readers card</span>
+                    <input type="text" class="field modal__input" name="login" required>
+                </label>
+                <label class="modal__label">
+                    <span class="modal__label-text">Password</span>
+                    <input type="password" class="field modal__input" name="password" required minlength="8">
+                </label>
+                <button class="button modal__button modal-login__button">Log In</button>
+            </form>
+            <div class="modal__wrap">
+                <span class="modal__question">Don’t have an account?</span>
+                <button class="btn btn_link" data-close="modal-login" data-showmodal="modal-register">Register</button>
+            </div>
+        </div>
+        <!-- /.modal__container modal-login__container -->
     </dialog>
 
-    <svg class="svg-symbols hidden">
+    <dialog class="modal modal-card" id="modal-card">
+        <h3 class="title modal__title modal-card__title">Buy a library card</h3>
+        <button class="btn modal__close-btn modal-card__close-btn" data-close="modal-card"></button>
+        <div class="modal__container modal-card__container">
+            <form class="modal__form modal-card__form" name="buyCardForm">
+                <fieldset class="fields modal__fields modal-card__fields">
+                    <label class="modal__label">
+                        <span class="modal__label-text">Bank card number</span>
+                        <input type="text" class="field modal__input" name="bankCardNumber" required pattern="\d{16}">
+                    </label>
+                    <fieldset class="fields modal-card__fields__block">
+                        <label for="exp" class="modal__label modal__label-text modal-card__label-exp">Expiration code</label>
+                        <input type="text" class="field modal__input modal-card__input--short" id="exp" name="bankCardMonth" required pattern="[\d]{2}">
+                        <input type="text" class="field modal__input modal-card__input--short" name="bankCardYear" required pattern="[\d]{2}">
+                    </fieldset>
+                    <label class="modal__label">
+                        <span class="modal__label-text">CVC</span>
+                        <input type="text" class="field modal__input modal-card__input--short" name="bankCardCVC" required pattern="[\d]{3}">
+                    </label>
+                </fieldset>
+                <fieldset class="fields modal__fields modal-card__fields">
+                    <label class="modal__label">
+                        <span class="modal__label-text">Cardholder name</span>
+                        <input type="text" class="field modal__input" name="bankCardHolderName" required minlength="3" maxlength="50">
+                    </label>
+                    <label class="modal__label">
+                        <span class="modal__label-text">Postal code</span>
+                        <input type="text" class="field modal__input" name="bankCardPostalCode" required>
+                    </label>
+                    <label class="modal__label">
+                        <span class="modal__label-text">City / Town</span>
+                        <input type="text" class="field modal__input" name="bankCardCity" required minlength="3" maxlength="50">
+                    </label>
+                </fieldset>
+                <div class="modal-card__wrap">
+                    <button class="button modal__button" disabled>Buy</button>
+                    <span class="modal-card__price">$ 25.00</span>
+                </div>
+            </form>
+            <p class="text modal-card__text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form.
+                Visitors to New York State can also use this form to apply for a temporary card.
+            </p>
+        </div>
+        <!-- /.modal-card__container -->
+    </dialog>
+
+    <dialog class="modal modal-profile" id="modal-profile">
+        <div class="modal__container modal-profile__container">
+            <div class="modal-profile__user">
+                <div class="modal-profile__avatar"></div>
+                <span class="modal-profile__user-name"></span>
+            </div>
+            <!-- /.modal-profile__user -->
+            <div class="modal-profile__profile">
+                <h3 class="title modal__title modal-profile__title">My profile</h3>
+                <button class="btn modal__close-btn modal-profile__close-btn" data-close="modal-profile"></button>
+                <ul class="list modal-profile__stat">
+                    <li class="modal-profile__stat-item">
+                        <h4 class="title modal-profile__stat-title">Visits</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon modal-profile__stat-icon" width="20" height="21">
+                            <use href="#visits-icon"></use>
+                        </svg>
+                        <span class="modal-profile__stat-count">0</span>
+                    </li>
+                    <li class="modal-profile__stat-item">
+                        <h4 class="title modal-profile__stat-title">Bonuses</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon modal-profile__info-icon" width="20" height="21">
+                            <use href="#bonuses-icon"></use>
+                        </svg>
+                        <span class="modal-profile__stat-count">0</span>
+                    </li>
+                    <li class="modal-profile__stat-item">
+                        <h4 class="title modal-profile__stat-title">Books</h4>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon modal-profile__stat-icon" width="20" height="21">
+                            <use href="#books-icon"></use>
+                        </svg>
+                        <span class="modal-profile__stat-count">0</span>
+                    </li>
+                </ul>
+                <div class="modal-profile__rented-books">
+                    <h4 class="title modal-profile__rented-title">Rented books</h4>
+                    <div class="modal-profile__books-wrapper">
+                        <ul class="list modal-profile__books">
+                        </ul>
+                    </div>
+                    <!-- /.modal-profile__books-wrapper-->
+                </div>
+                <div class="modal-profile__card-info">
+                    <span class="modal-profile__card-text">Card number</span>
+                    <span class="modal-profile__card-number"></span>
+                    <button class="btn modal-profile__copy-btn">
+                        <svg class="icon modal-profile__card-icon" width="14" height="12">
+                            <use href="#copy-icon"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-profile__profile -->
+        </div>
+        <!-- /.modal-profile__container -->
+    </dialog>
+
+    <svg id="social-icons" class="svg-symbols hidden">
         <defs>
             <symbol id="twitter-icon" viewBox="0 0 24 24">
                 <path
@@ -707,7 +819,7 @@
         </defs>
     </svg>
 
-    <svg class="svg-symbols hidden">
+    <svg id="header-icons" class="svg-symbols hidden">
         <defs>
             <symbol id="user-icon" viewBox="0 0 28 28">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -716,10 +828,33 @@
         </defs>
     </svg>
 
-    <svg class="svg-symbols hidden">
+    <svg id="slider-icons" class="svg-symbols hidden">
         <defs>
             <symbol id="slider-button" viewBox="0 0 24 25">
                 <path d="M15 7.5L9 12.5L15 17.5" stroke-linecap="round" stroke-linejoin="round" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <svg id="profile-icons" class="svg-symbols hidden">
+        <defs>
+            <symbol id="visits-icon" viewBox="0 0 21 21">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M10.5 10C13.2614 10 15.5 7.76143 15.5 5C15.5 2.23857 13.2614 0 10.5 0C7.73857 0 5.5 2.23857 5.5 5C5.5 7.76143 7.73857 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5H0.5C0.5 18.3478 1.55357 15.8043 3.42894 13.9289C5.30429 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z"
+                      fill="#BB945F" />
+            </symbol>
+            <symbol id="bonuses-icon" viewBox="0 0 20 21">
+                <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z"
+                      fill="#BB945F" />
+            </symbol>
+            <symbol id="books-icon" viewBox="0 0 20 21">
+                <rect width="20" height="21" fill="#BB945F" />
+                <rect x="2" width="1" height="19" fill="#826844" />
+                <rect x="1" width="1" height="21" fill="white" />
+            </symbol>
+            <symbol id="copy-icon" viewBox="0 0 14 12">
+                <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" fill="transparent" stroke="black" stroke-width="0.5" />
+                <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5" />
             </symbol>
         </defs>
     </svg>
