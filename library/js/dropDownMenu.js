@@ -1,14 +1,14 @@
-const initDropdown = (button, dropdown, dropdownItems) => {
+const initDropdown = (button, dropdown, menuItems) => {
   const isDropdownOpen = () => dropdown.hasAttribute('open');
 
   const dropdownShow = () => {
-    button.toggleAttribute('active');
-    if (dropdown.show) dropdown.show(); else dropdown.toggleAttribute('open');
+    button.setAttribute('active', '');
+    if (dropdown.show) dropdown.show(); else dropdown.setAttribute('open', '');
   };
 
   const dropdownClose = () => {
-    button.toggleAttribute('active');
-    if (dropdown.close) dropdown.close(); else dropdown.toggleAttribute('open');
+    button.removeAttribute('active');
+    if (dropdown.close) dropdown.close(); else dropdown.removeAttribute('open');
   };
 
   const toggleDropdown = () => {
@@ -20,12 +20,31 @@ const initDropdown = (button, dropdown, dropdownItems) => {
   });
 
   document.addEventListener('click', (e) => {
-    if (!isDropdownOpen() || e.target === button) return;
+    if (!dropdown.hasAttribute('open') || e.target === button) return;
+    const isClickOutsideDropdown = !dropdown.contains(e.target);
+    const isClickOnMenuItem = [...menuItems].includes(e.target);
 
-    const shouldClose = !dropdown.contains(e.target) || [...dropdownItems].includes(e.target);
+    const shouldClose = isClickOutsideDropdown || isClickOnMenuItem;
 
     if (shouldClose) dropdownClose();
   });
 };
 
-export default initDropdown;
+// Dropdowns Initiation
+const initDropdowns = () => {
+  // Burger menu
+  const burgerBtn = document.querySelector('.burger-btn');
+  const nav = document.querySelector('.header__nav');
+  const navLinks = nav.getElementsByTagName('A');
+
+  initDropdown(burgerBtn, nav, navLinks);
+
+  // User dropdown
+  const userBtn = document.querySelector('.user__btn');
+  const userMenu = window['user-dropdown'];
+  const userActions = userMenu.getElementsByTagName('BUTTON');
+
+  initDropdown(userBtn, userMenu, userActions);
+};
+
+export default initDropdowns;
