@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import initDropdown from './dropDownMenu.js';
-import initModalBtns from './modalBtns.js';
+import initModals from './modal.js';
 import printSelfcheck from './selfcheck.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdown(userBtn, userMenu, userActions);
 
   // Modals actions
-  initModalBtns('close');
-  initModalBtns('showModal');
+  initModals();
 
   // Selfcheck
   printSelfcheck();
