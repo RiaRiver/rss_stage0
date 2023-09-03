@@ -2,6 +2,7 @@ const initModalBtns = (action) => {
   const dataAttrName = action.toLowerCase();
   const selector = `[data-${dataAttrName}]`;
   const modalActionBtns = document.querySelectorAll(selector);
+
   [...modalActionBtns].forEach((btn) => btn.addEventListener('click', (e) => {
     const modalId = e.target.dataset[dataAttrName];
     window[modalId][action]();
@@ -21,7 +22,7 @@ const initModals = () => {
 
   // Click on backdrop
   const modals = document.querySelectorAll('.modal');
-  modals.forEach((item) => item.addEventListener('click', closeOnBackdrop));
+  modals.forEach((item) => item.addEventListener('mousedown', closeOnBackdrop));
 };
 
 export default initModals;
