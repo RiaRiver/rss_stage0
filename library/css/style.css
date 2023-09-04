@@ -102,7 +102,7 @@ body {
 
 .button:disabled {
   color: var(--accent);
-  cursor: auto;
+  cursor: not-allowed;
   border-color: var(--accent);
 }
 
@@ -530,6 +530,10 @@ body {
 
 .book__title {
   text-transform: uppercase;
+}
+
+.book__author::before {
+  content: "By ";
 }
 
 .book__description {

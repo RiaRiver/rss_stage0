@@ -42,6 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
     state.user = service.logout();
   };
 
+  const buyCard = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const modal = form.closest('.modal');
+
+    state.user = service.buyCard();
+
+    form.reset();
+    modal.close();
+  };
+
   // Set form listeners
   const {
     libraryCardForm, registerForm, loginForm, buyCardForm,
@@ -49,10 +60,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   registerForm.addEventListener('submit', register);
   loginForm.addEventListener('submit', login);
+  buyCardForm.addEventListener('submit', buyCard);
 
   // Set logout listener
   const logoutBtn = document.querySelector('[data-action=logout]');
   logoutBtn.addEventListener('click', logout);
+
+  // Setup buyCard empty validation
+  const checkEmpty = (e) => {
+    const { form } = e.target;
+    const inputs = form.querySelectorAll('input');
+    const isEmpty = [...inputs].some((input) => input.validity.valueMissing);
+
+    form.querySelector('button').disabled = isEmpty;
+  };
+
+  buyCardForm.addEventListener('input', checkEmpty);
+
+  // Setup buyBook
+  const buyBook = (e) => {
+    if (!state.user) { window['modal-login'].showModal(); return; }
+    if (!state.user.hasCard) { window['modal-card'].showModal(); return; }
+
+    const bookId = e.target.closest('[data-bookid]').dataset.bookid;
+
+    state.user = service.buyBook(bookId);
+  };
+
+  const bookBtns = document.querySelectorAll('.book__button');
+  bookBtns.forEach((btn) => btn.addEventListener('click', buyBook));
 
   // Selfcheck
   printSelfcheck();

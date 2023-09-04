@@ -1,8 +1,10 @@
 /* eslint-disable import/extensions */
+import createBooksDB from './books.js';
 import { capitalize, getRandomIntInclusive } from './utils.js';
 
 const usersDB = 'libraryUsers(riariver)';
 const currentUser = 'libraryAuthorized(riariver)';
+const booksDB = 'libraryBooks(riariver)';
 
 const generateCardNumber = (base = 16, charCount = 9) => {
   const min = base ** (charCount - 1);
@@ -15,6 +17,13 @@ const lsUtils = {
   getData: (key) => JSON.parse(localStorage.getItem(key)),
   setData: (key, data) => localStorage.setItem(key, JSON.stringify(data)),
   deleteData: (key) => localStorage.removeItem(key),
+};
+
+// Imitation of Books DB
+(() => lsUtils.setData(booksDB, createBooksDB()))();
+const getBooks = (booksIds) => {
+  const booksData = lsUtils.getData(booksDB);
+  return booksData.filter((book) => booksIds.includes(book.id));
 };
 
 // Imitation of Users DB
@@ -43,6 +52,7 @@ const userUtils = {
     const data = { ...user };
     const secureProps = ['password', 'email'];
 
+    data.books = getBooks(data.books);
     secureProps.forEach((prop) => delete data[prop]);
     return data;
   },
@@ -88,6 +98,32 @@ const service = {
   },
 
   logout() { lsUtils.deleteData(currentUser); return null; },
+
+  buyCard() {
+    const userId = lsUtils.getData(currentUser);
+    if (!userId) return null;
+
+    const users = getUsers();
+    const user = findUser(users, { cardNumber: userId });
+    user.hasCard = true;
+
+    lsUtils.setData(usersDB, users);
+    return userUtils.getData(user);
+  },
+
+  buyBook(bookId) {
+    const users = getUsers();
+    const userId = lsUtils.getData(currentUser);
+
+    const user = findUser(users, { cardNumber: userId });
+    const { books } = user;
+    if (!books.includes(bookId)) {
+      books.push(bookId);
+      lsUtils.setData(usersDB, users);
+    }
+
+    return userUtils.getData(user);
+  },
 
 };
 
