@@ -124,6 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookBtns = document.querySelectorAll('.book__button');
   bookBtns.forEach((btn) => btn.addEventListener('click', buyBook));
 
+  // Setup copy cardNumber button
+  const profileCopyBtn = document.querySelector('.modal-profile__copy-btn');
+  profileCopyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(state.user.cardNumber.toUpperCase());
+  });
+
   // Selfcheck
   printSelfcheck();
 });
