@@ -56,6 +56,12 @@ const userUtils = {
     secureProps.forEach((prop) => delete data[prop]);
     return data;
   },
+
+  pickData(user, props) {
+    const data = {};
+    props.forEach((prop) => { data[prop] = user[prop]; });
+    return data;
+  },
 };
 
 // Interface
@@ -125,6 +131,18 @@ const service = {
     return userUtils.getData(user);
   },
 
+  checkCard(data) {
+    const user = findUser(getUsers(), { cardNumber: data.cardNumber });
+    if (!user) return null;
+
+    const [firstName, lastName] = data.fullName.trim().replace(/\s{2,}/g, ' ').split(' ').map(capitalize);
+    const isNameCorrect = user.firstName === firstName && user.lastName === lastName;
+
+    return isNameCorrect ? {
+      ...userUtils.pickData(user, ['firstName', 'lastName', 'cardNumber', 'visits', 'bonuses']),
+      booksCount: user.books.length,
+    } : null;
+  },
 };
 
 export default service;

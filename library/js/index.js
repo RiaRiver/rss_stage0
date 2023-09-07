@@ -71,6 +71,20 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.close();
   };
 
+  const checkCard = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const viewTime = 10000;
+
+    const formData = getFormData(form);
+
+    const userData = service.checkCard(formData);
+    if (!userData) return;
+
+    render.stats(prepareUser(userData));
+    window.setTimeout(render.statsInitial, viewTime);
+  };
+
   // Set form listeners
   const {
     libraryCardForm, registerForm, loginForm, buyCardForm,
@@ -79,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
   registerForm.addEventListener('submit', register);
   loginForm.addEventListener('submit', login);
   buyCardForm.addEventListener('submit', buyCard);
+  libraryCardForm.addEventListener('submit', checkCard);
 
   // Set logout listener
   const logoutBtn = document.querySelector('[data-action=logout]');
