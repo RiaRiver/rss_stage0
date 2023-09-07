@@ -41,17 +41,18 @@
             </nav>
             <div class="user header__user">
                 <button class="btn user__btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon user-icon" width="28" height="28">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon user-icon" data-state="initial" width="28" height="28">
                         <use href="#user-icon"></use>
                     </svg>
+                    <span class="user-avatar" data-initial="" data-info="initials" data-state="authorized" hidden></span>
                 </button>
                 <dialog class="user__dropdown" id="user-dropdown">
-                    <h4 class="title user__title">Profile</h4>
-                    <ul class="list user__actions">
-                        <li class="user__action"><button class="btn user__action-btn" data-showmodal="modal-login">Log In</button></li>
-                        <li class="user__action"><button class="btn user__action-btn" data-showmodal="modal-register">Register</button></li>
-                        <li class="user__action hidden"><button class="btn user__action-btn">My profile</button></li>
-                        <li class="user__action hidden"><button class="btn user__action-btn" data-action="logout">Log Out</button></li>
+                    <h4 class="title user__title" data-initial="Profile" data-info="cardNumber">Profile</h4>
+                    <ul class="list user__actions" id="user-actions">
+                        <li class="user__action" data-state="initial"><button class="btn user__action-btn" data-showmodal="modal-login">Log In</button></li>
+                        <li class="user__action" data-state="initial"><button class="btn user__action-btn" data-showmodal="modal-register">Register</button></li>
+                        <li class="user__action" data-state="authorized" hidden><button class="btn user__action-btn" data-showmodal="modal-profile">My profile</button></li>
+                        <li class="user__action" data-state="authorized" hidden><button class="btn user__action-btn" data-action="logout">Log Out</button></li>
                     </ul>
                 </dialog>
             </div>
@@ -546,28 +547,63 @@
             <section class="section library-card" id="library-card">
                 <h2 class="title section__title">Digital Library Cards</h2>
                 <div class="library-card__wrapper">
-                    <form action="#" class="library-card__form">
-                        <h3 class="title library-card__form-title">Find your Library card</h3>
+                    <form action="#" class="library-card__form" name="libraryCardForm">
+                        <h3 class="title library-card__form-title">
+                            <span data-state="initial">Find your Library card</span>
+                            <span data-state="authorized" hidden>Your Library card</span>
+                        </h3>
                         <div class="library-card__form-wrapper">
                             <fieldset class="fields library-card__fields">
                                 <span class="text library-card__form-subtitle">Brooklyn Public Library</span>
-                                <input type="text" class="field library-card__form-field" placeholder="Reader's name" name="name" pattern="[a-zA-Z0-9\-\s]*"
-                                       title="Please follow the format: only letters, numbers, spaces and hyphens are allowed. Length from 3 to 50." minlength="3" maxlength="50" required>
-                                <input type="text" class="field library-card__form-field" placeholder="Card number" name="card-number" pattern="\w{1}\d{8}" title="Please follow the format: F00234030"
-                                       minlength="9" maxlength="9" required>
+                                <input type="text" class="field library-card__form-field" placeholder="Reader's name" name="fullName" pattern="[a-zA-Z0-9\-\s]*"
+                                       data-error="Please follow the format: only letters, numbers, spaces and hyphens are allowed. Length from 3 to 50." minlength="3" maxlength="50" required>
+                                <input type="text" class="field library-card__form-field" placeholder="Card number" name="cardNumber" pattern="[A-Fa-f\d]{9}"
+                                       data-error="Please follow the format: 9 symbols in HEX." minlength="9" maxlength="9" required>
                             </fieldset>
                             <button class="button library-card__form-button">Check the card</button>
+                            <ul class="list library-card__stat" hidden>
+                                <li class=" library-card__stat-item">
+                                    <h4 class="title library-card__stat-title">Visits</h4>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon library-card__stat-icon" width="20" height="21">
+                                        <use href="#visits-icon"></use>
+                                    </svg>
+                                    <span class="library-card__stat-count" data-initial="0" data-count="visits">0</span>
+                                </li>
+                                <li class="library-card__stat-item">
+                                    <h4 class="title library-card__stat-title">Bonuses</h4>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon library-card__stat-icon" width="20" height="21">
+                                        <use href="#bonuses-icon"></use>
+                                    </svg>
+                                    <span class="library-card__stat-count" data-initial="0" data-count="bonuses">0</span>
+                                </li>
+                                <li class="library-card__stat-item">
+                                    <h4 class="title library-card__stat-title">Books</h4>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon library-card__stat-icon" width="20" height="21">
+                                        <use href="#books-icon"></use>
+                                    </svg>
+                                    <span class="library-card__stat-count" data-initial="0" data-count="booksCount">0</span>
+                                </li>
+                            </ul>
                         </div>
                         <!-- /.library-card__form-wrapper -->
                     </form>
                     <!-- /.library-card__form -->
-                    <div class="library-card__description">
+                    <div class="library-card__description" data-state="initial">
                         <span class="text library-card__description-subtitle">Get a reader card</span>
                         <p class="text library-card__description-text">You will be able to see a reader card after logging into account or you can register a
                             new account</p>
                         <div class="library-card__description-buttons">
                             <button class="button library-card__description-button" data-showmodal="modal-register">Sign Up</button>
                             <button class="button library-card__description-button" data-showmodal="modal-login">Log in</button>
+                        </div>
+                        <!-- /.library-card__description-buttons -->
+                    </div>
+                    <div class="library-card__description" data-state="authorized" hidden>
+                        <span class="text library-card__description-subtitle">Visit your profile</span>
+                        <p class="text library-card__description-text">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases,
+                            educational resources, and more.</p>
+                        <div class="library-card__description-buttons">
+                            <button class="button library-card__description-button" data-showmodal="modal-profile">Profile</button>
                         </div>
                         <!-- /.library-card__description-buttons -->
                     </div>
@@ -747,8 +783,8 @@
     <dialog class="modal modal-profile" id="modal-profile">
         <div class="modal__container modal-profile__container">
             <div class="modal-profile__user">
-                <div class="modal-profile__avatar"></div>
-                <span class="modal-profile__user-name"></span>
+                <div class="modal-profile__avatar" data-initial="" data-info="initials"></div>
+                <span class="modal-profile__user-name" data-initial="" data-info="fullName"></span>
             </div>
             <!-- /.modal-profile__user -->
             <div class="modal-profile__profile">
@@ -760,21 +796,21 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon modal-profile__stat-icon" width="20" height="21">
                             <use href="#visits-icon"></use>
                         </svg>
-                        <span class="modal-profile__stat-count">0</span>
+                        <span class="modal-profile__stat-count" data-initial="0" data-count="visits">0</span>
                     </li>
                     <li class="modal-profile__stat-item">
                         <h4 class="title modal-profile__stat-title">Bonuses</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon modal-profile__info-icon" width="20" height="21">
                             <use href="#bonuses-icon"></use>
                         </svg>
-                        <span class="modal-profile__stat-count">0</span>
+                        <span class="modal-profile__stat-count" data-initial="0" data-count="bonuses">0</span>
                     </li>
                     <li class="modal-profile__stat-item">
                         <h4 class="title modal-profile__stat-title">Books</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon modal-profile__stat-icon" width="20" height="21">
                             <use href="#books-icon"></use>
                         </svg>
-                        <span class="modal-profile__stat-count">0</span>
+                        <span class="modal-profile__stat-count" data-initial="0" data-count="booksCount">0</span>
                     </li>
                 </ul>
                 <div class="modal-profile__rented-books">
@@ -787,7 +823,7 @@
                 </div>
                 <div class="modal-profile__card-info">
                     <span class="modal-profile__card-text">Card number</span>
-                    <span class="modal-profile__card-number"></span>
+                    <span class="modal-profile__card-number" data-initial="" data-info="cardNumber"></span>
                     <button class="btn modal-profile__copy-btn">
                         <svg class="icon modal-profile__card-icon" width="14" height="12">
                             <use href="#copy-icon"></use>

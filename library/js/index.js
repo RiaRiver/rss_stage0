@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import initDropdowns from './dropDownMenu.js';
 import initModals from './modal.js';
+import render from './render.js';
 import printSelfcheck from './selfcheck.js';
 import service from './service.js';
 import { getFormData } from './utils.js';
@@ -9,6 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const state = {
     user: service.getCurrentUser(),
   };
+
+  const prepareUser = (user) => ({
+    ...user,
+    fullName: `${user.firstName} ${user.lastName}`,
+    initials: `${user.firstName[0]}${user.lastName[0]}`,
+    cardNumber: user.cardNumber.toUpperCase(),
+    booksCount: user.booksCount === undefined ? user.books.length : user.booksCount,
+  });
+
+  if (state.user) render.all(prepareUser(state.user));
 
   initDropdowns();
   initModals();
@@ -22,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     state.user = service.register(formData);
 
+    render.all(prepareUser(state.user));
+
     form.reset();
     modal.close();
   };
@@ -34,12 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const formData = getFormData(form);
     state.user = service.login(formData);
 
+    render.all(prepareUser(state.user));
+
     form.reset();
     modal.close();
   };
 
   const logout = () => {
     state.user = service.logout();
+    render.initial();
   };
 
   const buyCard = (e) => {
@@ -48,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = form.closest('.modal');
 
     state.user = service.buyCard();
+
+    render.changed(prepareUser(state.user));
 
     form.reset();
     modal.close();
@@ -85,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookId = e.target.closest('[data-bookid]').dataset.bookid;
 
     state.user = service.buyBook(bookId);
+    render.changed(prepareUser(state.user));
   };
 
   const bookBtns = document.querySelectorAll('.book__button');
