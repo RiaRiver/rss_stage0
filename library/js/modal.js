@@ -25,4 +25,18 @@ const initModals = () => {
   modals.forEach((item) => item.addEventListener('mousedown', closeOnBackdrop));
 };
 
+// Setup alert
+const modalAlert = window['modal-alert'];
+const modalMsg = modalAlert.querySelector('.modal-alert__text');
+
+export const viewAlert = (msg) => {
+  modalMsg.textContent = msg;
+  modalAlert.showModal();
+
+  window.setTimeout(() => {
+    modalMsg.textContent = modalMsg.dataset.initial;
+    modalAlert.close();
+  }, 3000);
+};
+
 export default initModals;

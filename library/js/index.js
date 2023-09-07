@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 import initDropdowns from './dropDownMenu.js';
-import initModals from './modal.js';
+import initModals, { viewAlert } from './modal.js';
 import render from './render.js';
 import printSelfcheck from './selfcheck.js';
 import service from './service.js';
@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     state.user = service.register(formData);
 
+    if (!state.user) { viewAlert('This email is already registered.'); return; }
+
     render.all(prepareUser(state.user));
 
     form.reset();
@@ -46,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formData = getFormData(form);
     state.user = service.login(formData);
+
+    if (!state.user) { viewAlert('Wrong login or password. Please try again.'); return; }
 
     render.all(prepareUser(state.user));
 
