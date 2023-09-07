@@ -20,7 +20,7 @@ const lsUtils = {
 };
 
 // Imitation of Books DB
-(() => lsUtils.setData(booksDB, createBooksDB()))();
+lsUtils.setData(booksDB, createBooksDB());
 const getBooks = (booksIds) => {
   const booksData = lsUtils.getData(booksDB);
   return booksData.filter((book) => booksIds.includes(book.id));
@@ -77,7 +77,7 @@ const service = {
   },
 
   register(data) {
-    const isDataCorrect = (data.firstName && data.lastName && data.email && data.password);
+    const isDataCorrect = !!(data.firstName && data.lastName && data.email && data.password);
     if (!isDataCorrect) return null;
 
     const newUser = userUtils.create(data);
