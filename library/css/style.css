@@ -979,29 +979,21 @@ body {
 
 .modal__close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 13px;
+  right: 13px;
   display: flex;
   align-items: center;
-  width: 15px;
-  height: 15px;
+  width: 19px;
+  height: 19px;
   color: var(--dark);
 }
 
-.modal__close-btn::before,
-.modal__close-btn::after {
-  position: absolute;
+.close-icon {
   width: 100%;
-  height: 3px;
+  height: 100%;
   pointer-events: none;
-  content: "";
-  background-color: currentColor;
+  stroke: currentColor;
   transition: all 0.5s;
-  transform: rotate(45deg) scale(1.38);
-}
-
-.modal__close-btn::after {
-  transform: rotate(-45deg) scale(1.38);
 }
 
 .modal__form {
@@ -1092,8 +1084,8 @@ body {
 }
 
 .modal-card__close-btn {
-  top: 25px;
-  right: 20px;
+  top: 23px;
+  right: 18px;
   color: var(--light);
 }
 
@@ -1175,8 +1167,8 @@ body {
 }
 
 .modal-profile__close-btn {
-  top: 25px;
-  right: 25px;
+  top: 23px;
+  right: 23px;
 }
 
 .modal-profile__user {

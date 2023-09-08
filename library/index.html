@@ -683,7 +683,11 @@
     <dialog class="modal modal-register" id="modal-register">
         <div class="modal__container modal-register__container">
             <h3 class="title modal__title modal-register__title">Register</h3>
-            <button class="btn modal__close-btn" data-close="modal-register"></button>
+            <button class="btn modal__close-btn" data-close="modal-register">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon close-icon" width="15" height="15">
+                    <use href="#modal-close"></use>
+                </svg>
+            </button>
             <form class="modal__form modal-register__form" name="registerForm">
                 <label class="modal__label">
                     <span class="modal__label-text">First name</span>
@@ -714,7 +718,11 @@
     <dialog class="modal modal-login" id="modal-login">
         <div class="modal__container modal-login__container">
             <h3 class="title modal__title modal-login__title">Login</h3>
-            <button class="btn modal__close-btn" data-close="modal-login"></button>
+            <button class="btn modal__close-btn" data-close="modal-login">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon close-icon" width="15" height="15">
+                    <use href="#modal-close"></use>
+                </svg>
+            </button>
             <form class=" modal__form modal-login__form" name="loginForm">
                 <label class="modal__label">
                     <span class="modal__label-text">E-mail or readers card</span>
@@ -736,7 +744,11 @@
 
     <dialog class="modal modal-card" id="modal-card">
         <h3 class="title modal__title modal-card__title">Buy a library card</h3>
-        <button class="btn modal__close-btn modal-card__close-btn" data-close="modal-card"></button>
+        <button class="btn modal__close-btn modal-card__close-btn" data-close="modal-card">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon close-icon" width="15" height="15">
+                <use href="#modal-close"></use>
+            </svg>
+        </button>
         <div class="modal__container modal-card__container">
             <form class="modal__form modal-card__form" name="buyCardForm">
                 <fieldset class="fields modal__fields modal-card__fields">
@@ -789,7 +801,11 @@
             <!-- /.modal-profile__user -->
             <div class="modal-profile__profile">
                 <h3 class="title modal__title modal-profile__title">My profile</h3>
-                <button class="btn modal__close-btn modal-profile__close-btn" data-close="modal-profile"></button>
+                <button class="btn modal__close-btn modal-profile__close-btn" data-close="modal-profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon close-icon" width="15" height="15">
+                        <use href="#modal-close"></use>
+                    </svg>
+                </button>
                 <ul class="list modal-profile__stat">
                     <li class="modal-profile__stat-item">
                         <h4 class="title modal-profile__stat-title">Visits</h4>
@@ -874,6 +890,15 @@
         <defs>
             <symbol id="slider-button" viewBox="0 0 24 25">
                 <path d="M15 7.5L9 12.5L15 17.5" stroke-linecap="round" stroke-linejoin="round" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <svg id="modal-icons" class="svg-symbols hidden">
+        <defs>
+            <symbol id="modal-close" viewBox="0 0 19 19" fill="none">
+                <path d="M2 16.8507L17 2.00001" stroke-width="3" />
+                <path d="M2 2.14928L17 17" stroke-width="3" />
             </symbol>
         </defs>
     </svg>
