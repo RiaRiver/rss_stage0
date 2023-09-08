@@ -424,6 +424,19 @@ body {
 }
 
 /* Favorites */
+.favorites {
+  position: relative;
+}
+
+.favorites__title {
+  margin-bottom: 20px;
+}
+
+.favorites__selection {
+  padding: 20px 0;
+  background-color: var(--light);
+}
+
 .favorites__selection-text {
   margin-bottom: 40px;
   font-family: var(--fontText);
@@ -439,7 +452,7 @@ body {
   grid-template: "a b c d"  auto /124px 119px 136px 131px;
   gap: 10%;
   max-width: 700px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .favorites__radio {
@@ -493,10 +506,6 @@ body {
   gap: 40px 0;
   align-items: stretch;
   justify-content: space-between;
-}
-
-.favorites__books:not(.active) {
-  display: none;
 }
 
 .favorites__book {
@@ -1417,6 +1426,35 @@ input:-webkit-autofill:focus {
   transition: all 0.5s;
 }
 
+/* Animation tabs */
+.fade-out {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 /* Hovers */
 @media (hover: hover) and (pointer: fine) {
   .link:hover {
@@ -1482,6 +1520,13 @@ input:-webkit-autofill:focus {
 
 /* Adaptive */
 @media screen and (max-width: 1279px) {
+  .favorites__selection {
+    position: sticky;
+    top: 0;
+    right: 0;
+    z-index: 5;
+  }
+
   .favorites__block {
     max-width: 768px;
     margin: 0 auto;

@@ -124,25 +124,25 @@
             <!-- /.section .about -->
 
             <section class="section favorites" id="favorites">
-                <h2 class="title section__title">Favorites</h2>
+                <h2 class="title section__title favorites__title">Favorites</h2>
                 <div class="favorites__selection">
                     <p class="text favorites__selection-text">Pick favorites of season</p>
                     <!-- /.favorites__selection-text -->
                     <div class="favorites__seasons">
                         <label for="winter" class="favorites__season">
-                            <input type="radio" class="favorites__radio" id="winter" name="season" value="winter" checked>
+                            <input type="radio" class="favorites__radio tabBtn" id="winter" name="season" value="winter" checked>
                             <span class="text favorites__season-text">Winter</span>
                         </label>
                         <label for="spring" class="favorites__season">
-                            <input type="radio" class="favorites__radio" id="spring" name="season" value="spring">
+                            <input type="radio" class="favorites__radio tabBtn" id="spring" name="season" value="spring">
                             <span class="text favorites__season-text">Spring</span>
                         </label>
                         <label for="summer" class="favorites__season">
-                            <input type="radio" class="favorites__radio" id="summer" name="season" value="summer">
+                            <input type="radio" class="favorites__radio tabBtn" id="summer" name="season" value="summer">
                             <span class="text favorites__season-text">Summer</span>
                         </label>
                         <label for="autumn" class="favorites__season">
-                            <input type="radio" class="favorites__radio" id="autumn" name="season" value="autumn">
+                            <input type="radio" class="favorites__radio tabBtn" id="autumn" name="season" value="autumn">
                             <span class="text favorites__season-text">Autumn</span>
                         </label>
                     </div>
@@ -150,7 +150,7 @@
                 </div>
                 <!-- /.favorites__selection -->
                 <div class="favorites__block">
-                    <div class="favorites__books winter active">
+                    <div class="favorites__books winter tabContent active">
                         <div class="book favorites__book" data-bookid="0001">
                             <img src="assets/img/winter/winter-book1.jpg" alt="Book cover" class="book__image">
                             <div class="book__info">
@@ -218,7 +218,7 @@
                         <!-- /.favorites__book -->
                     </div>
                     <!-- /.favorites__books -->
-                    <div class="favorites__books spring">
+                    <div class="favorites__books spring tabContent" hidden>
                         <div class="book favorites__book" data-bookid="0005">
                             <img src="assets/img/spring/spring-book1.jpg" alt="Book cover" class="book__image">
                             <div class="book__info">
@@ -285,7 +285,7 @@
                         <!-- /.favorites__book -->
                     </div>
                     <!-- /.favorites__books -->
-                    <div class="favorites__books summer">
+                    <div class="favorites__books summer tabContent" hidden>
                         <div class="book favorites__book" data-bookid="0009">
                             <img src="assets/img/summer/summer-book1.jpg" alt="Book cover" class="book__image">
                             <div class="book__info">
@@ -352,7 +352,7 @@
                         <!-- /.favorites__book -->
                     </div>
                     <!-- /.favorites__books -->
-                    <div class="favorites__books autumn">
+                    <div class="favorites__books autumn tabContent" hidden>
                         <div class="book favorites__book" data-bookid="0013">
                             <img src="assets/img/autumn/autumn-book1.jpg" alt="Book cover" class="book__image">
                             <div class="book__info">
