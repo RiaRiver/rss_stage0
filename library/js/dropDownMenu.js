@@ -2,12 +2,12 @@ const initDropdown = (button, dropdown, menuItems) => {
   const isDropdownOpen = () => dropdown.hasAttribute('open');
 
   const dropdownShow = () => {
-    button.setAttribute('active', '');
+    button.classList.add('active');
     if (dropdown.show) dropdown.show(); else dropdown.setAttribute('open', '');
   };
 
   const dropdownClose = () => {
-    button.removeAttribute('active');
+    button.classList.remove('active');
     if (dropdown.close) dropdown.close(); else dropdown.removeAttribute('open');
   };
 

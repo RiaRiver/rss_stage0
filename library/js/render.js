@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 const hide = (elem) => elem.setAttribute('hidden', '');
 const view = (elem) => elem.removeAttribute('hidden');
-const setAuthorized = (elem) => elem.setAttribute('authorized', '');
-const unsetAuthorized = (elem) => elem.removeAttribute('authorized');
 const setDisabled = (elem) => elem.setAttribute('disabled', '');
 const unsetDisabled = (elem) => elem.removeAttribute('disabled');
+const setAuthorized = (elem) => elem.classList.add('authorized');
+const unsetAuthorized = (elem) => elem.classList.remove('authorized');
 
 const statedElements = {
   initial: document.querySelectorAll('[data-state="initial"]'),

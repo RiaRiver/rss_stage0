@@ -263,7 +263,7 @@ body {
   text-align: center;
 }
 
-.user__title[authorized] {
+.user__title.authorized {
   font-size: 12px;
   text-transform: uppercase;
 }
@@ -1638,21 +1638,21 @@ input:-webkit-autofill:focus {
     transition: all 0.5s;
   }
 
-  .burger-btn[active] {
+  .burger-btn.active {
     height: 32px;
     margin-bottom: 0;
   }
 
-  .burger-btn[active] .burger-line {
+  .burger-btn.active .burger-line {
     opacity: 0;
   }
 
-  .burger-btn[active]::before {
+  .burger-btn.active::before {
     top: 15px;
     transform: rotate(45deg);
   }
 
-  .burger-btn[active]::after {
+  .burger-btn.active::after {
     bottom: 15px;
     transform: rotate(-45deg);
   }
