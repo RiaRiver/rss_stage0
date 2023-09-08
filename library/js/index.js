@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const logout = () => {
     state.user = service.logout();
-    render.initial();
+    document.location.reload();
   };
 
   const buyCard = (e) => {
