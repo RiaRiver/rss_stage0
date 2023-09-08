@@ -1187,7 +1187,7 @@ body {
   justify-content: center;
   width: 50%;
   max-width: 170px;
-  padding: 0 15px;
+  padding: 0 25px;
   background-color: var(--primary);
 }
 
@@ -1219,8 +1219,9 @@ body {
   line-height: 20px;
   color: var(--dark);
   text-align: center;
-  text-overflow: ellipsis;
   text-transform: capitalize;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   background-color: var(--light);
 }
 
