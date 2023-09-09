@@ -4,6 +4,7 @@ import initModals, { viewAlert } from './modal.js';
 import render from './render.js';
 import printSelfcheck from './selfcheck.js';
 import service from './service.js';
+import initSlider from './slider.js';
 import initTabs from './tab.js';
 import { getFormData } from './utils.js';
 
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdowns();
   initModals();
   initTabs('.tabBtn', '.tabContent');
+  initSlider();
 
   // Actions
   const register = (e) => {
