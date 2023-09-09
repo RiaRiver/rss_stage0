@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import initDropdowns from './dropDownMenu.js';
 import initModals, { viewAlert } from './modal.js';
+import msg from './msg.js';
 import render from './render.js';
 import printSelfcheck from './selfcheck.js';
 import service from './service.js';
@@ -138,6 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
     navigator.clipboard.writeText(state.user.cardNumber.toUpperCase());
   });
 
+  // Message for reviewer
+  msg();
   // Selfcheck
   printSelfcheck();
 });
