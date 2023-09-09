@@ -553,9 +553,9 @@
                             <fieldset class="fields library-card__fields">
                                 <span class="text library-card__form-subtitle">Brooklyn Public Library</span>
                                 <input type="text" class="field library-card__form-field" placeholder="Reader's name" name="fullName" pattern="[a-zA-Z0-9\-\s]*"
-                                       data-error="Please follow the format: only letters, numbers, spaces and hyphens are allowed. Length from 3 to 50." minlength="3" maxlength="50" required>
-                                <input type="text" class="field library-card__form-field" placeholder="Card number" name="cardNumber" pattern="[A-Fa-f\d]{9}"
-                                       data-error="Please follow the format: 9 symbols in HEX." minlength="9" maxlength="9" required>
+                                       title="Please input only letters, numbers, spaces and hyphens." minlength="3" maxlength="50" required>
+                                <input type="text" class="field library-card__form-field" placeholder="Card number" name="cardNumber" pattern="[A-Fa-f\d]{9}" title="Please input 9 symbols in HEX."
+                                       minlength="9" maxlength="9" required>
                             </fieldset>
                             <button class="button library-card__form-button">Check the card</button>
                             <ul class="list library-card__stat" hidden>
@@ -751,16 +751,17 @@
                 <fieldset class="fields modal__fields modal-card__fields">
                     <label class="modal__label">
                         <span class="modal__label-text">Bank card number</span>
-                        <input type="text" class="field modal__input" name="bankCardNumber" required pattern="(\d{4}\s?){3}\d{4}">
+                        <input type="text" class="field modal__input" name="bankCardNumber" required pattern="(\d{4}\s?){3}\d{4}"
+                               title="Please input 16 digits with space every 4 digit or without spaces: '1234 1234 1234 1234' or '1234123412341234'">
                     </label>
                     <fieldset class="fields modal-card__fields__block">
                         <label for="exp" class="modal__label modal__label-text modal-card__label-exp">Expiration code</label>
-                        <input type="text" class="field modal__input modal__input--short" id="exp" name="bankCardMonth" required pattern="[\d]{2}">
-                        <input type="text" class="field modal__input modal__input--short" name="bankCardYear" required pattern="[\d]{2}">
+                        <input type="text" class="field modal__input modal__input--short" id="exp" name="bankCardMonth" required pattern="[\d]{2}" title="Please input 2 digits">
+                        <input type="text" class="field modal__input modal__input--short" name="bankCardYear" required pattern="[\d]{2}" title="Please input 2 digits">
                     </fieldset>
                     <label class="modal__label">
                         <span class="modal__label-text">CVC</span>
-                        <input type="text" class="field modal__input modal__input--short" name="bankCardCVC" required pattern="[\d]{3}">
+                        <input type="text" class="field modal__input modal__input--short" name="bankCardCVC" required pattern="[\d]{3}" title="Please input 3 digits">
                     </label>
                 </fieldset>
                 <fieldset class="fields modal__fields modal-card__fields">

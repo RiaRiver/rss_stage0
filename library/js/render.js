@@ -16,6 +16,7 @@ const infoElements = document.querySelectorAll('[data-info]');
 const countElements = document.querySelectorAll('[data-count]');
 const bookBtns = document.querySelectorAll('.book__button');
 const checkCardInputs = document.forms.libraryCardForm.querySelectorAll('input');
+const checkCardInputsTitles = [...checkCardInputs].map((input) => input.title);
 const checkCardBtn = document.querySelector('.library-card__form-button');
 const checkCardStat = document.querySelector('.library-card__stat');
 const profileBookList = document.querySelector('.modal-profile__books');
@@ -43,8 +44,9 @@ const render = {
   },
 
   statsInitial() {
-    checkCardInputs.forEach((input) => {
+    checkCardInputs.forEach((input, ind) => {
       input.value = '';
+      input.title = checkCardInputsTitles[ind];
       unsetDisabled(input);
     });
 
@@ -60,6 +62,7 @@ const render = {
   stats(data) {
     checkCardInputs.forEach((input) => {
       input.value = data[input.name];
+      input.title = '';
       setDisabled(input);
     });
 
