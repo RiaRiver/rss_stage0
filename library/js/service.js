@@ -132,7 +132,7 @@ const service = {
   },
 
   checkCard(data) {
-    const user = findUser(getUsers(), { cardNumber: data.cardNumber });
+    const user = findUser(getUsers(), { cardNumber: data.cardNumber.toLowerCase() });
     if (!user) return null;
 
     const [firstName, lastName] = data.fullName.trim().replace(/\s{2,}/g, ' ').split(' ').map(capitalize);
