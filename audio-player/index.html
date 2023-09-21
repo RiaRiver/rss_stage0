@@ -9,7 +9,83 @@
 </head>
 
 <body>
+    <main>
+        <div class="player player1">
+            <h2 class="player__track">
+                <span class="title player__artist">Artist</span>
+                <span class="title player__title">Title</span>
+            </h2>
 
-    <script src="js/index.js"></script>
+            <div class="player__cover">
+                <div class="player__img-wrapper"><img src="/audio-player/assets/img/cover_placeholder.png" alt="Previous track cover" class="player__imgPrev"></div>
+                <div class="player__img-wrapper"><img src="/audio-player/assets/img/cover_placeholder.png" alt="Track cover" class="player__img"></div>
+                <div class="player__img-wrapper"><img src="/audio-player/assets/img/cover_placeholder.png" alt="Next track cover" class="player__imgNext"></div>
+            </div>
+            <!-- /.player__cover -->
+
+            <div class="player__playback">
+                <input type="range" class="player__progress" name="playback" min="0" max="100" step="0.1" value="0">
+                <div class="player__time">
+                    <span class="player__currentTime"></span>
+                    <span class="player__duration"></span>
+                </div>
+            </div>
+            <!-- /.player__playback -->
+
+            <div class="player__controls">
+                <button class="btn player__prev" data-change="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon prev-icon" width="32" height="32">
+                        <use href="#prev-icon"></use>
+                    </svg>
+                </button>
+
+                <button class="btn player__play">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon play-icon" width="32" height="32">
+                        <use class="player__playIcon" href="#play-icon"></use>
+                    </svg>
+                </button>
+
+                <button class="btn player__next" data-change="next">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon next-icon" width="32" height="32">
+                        <use href="#next-icon"></use>
+                    </svg>
+                </button>
+            </div>
+            <!-- /.player__controls -->
+        </div>
+        <!-- /.player -->
+    </main>
+
+    <svg id="player-icons" class="svg-symbols hidden">
+        <defs>
+            <symbol id="play-icon" viewBox="0 0 32 32" fill="currentColor">
+                <path
+                      d="M10.6666 6.6548C10.6666 6.10764 11.2894 5.79346 11.7295 6.11861L24.377 15.4634C24.7377 15.7298 24.7377 16.2692 24.377 16.5357L11.7295 25.8813C11.2894 26.2065 10.6666 25.8923 10.6666 25.3451L10.6666 6.6548Z" />
+            </symbol>
+
+            <symbol id="pause-icon" viewBox="0 0 32 32" fill="currentColor">
+                <path
+                      d="M8.66667 6.66667C8.29848 6.66667 8 6.96514 8 7.33333V24.6667C8 25.0349 8.29848 25.3333 8.66667 25.3333H12.6667C13.0349 25.3333 13.3333 25.0349 13.3333 24.6667V7.33333C13.3333 6.96514 13.0349 6.66667 12.6667 6.66667H8.66667Z" />
+                <path
+                      d="M19.3333 6.66667C18.9651 6.66667 18.6667 6.96514 18.6667 7.33333V24.6667C18.6667 25.0349 18.9651 25.3333 19.3333 25.3333H23.3333C23.7015 25.3333 24 25.0349 24 24.6667V7.33333C24 6.96514 23.7015 6.66667 23.3333 6.66667H19.3333Z" />
+            </symbol>
+
+            <symbol id="prev-icon" viewBox="0 0 32 32" fill="currentColor">
+                <path
+                      d="M25.1377 6.78532C25.5778 6.46017 26.2006 6.77434 26.2006 7.32151V24.6785C26.2006 25.2257 25.5778 25.5398 25.1377 25.2147L13.3924 16.5358C13.0318 16.2693 13.0318 15.7299 13.3924 15.4634L25.1377 6.78532Z" />
+                <path
+                      d="M8.00004 6.6667C8.36823 6.6667 8.66671 6.96518 8.66671 7.33337V24.6667C8.66671 25.0349 8.36823 25.3334 8.00004 25.3334H6.00004C5.63185 25.3334 5.33337 25.0349 5.33337 24.6667V7.33337C5.33337 6.96518 5.63185 6.6667 6.00004 6.6667H8.00004Z" />
+            </symbol>
+
+            <symbol id="next-icon" viewBox="0 0 32 32" fill="currentColor">
+                <path
+                      d="M6.39621 6.78532C5.95613 6.46017 5.33337 6.77434 5.33337 7.32151V24.6785C5.33337 25.2257 5.95616 25.5398 6.39623 25.2147L18.1415 16.5358C18.5022 16.2693 18.5022 15.7299 18.1415 15.4634L6.39621 6.78532Z" />
+                <path
+                      d="M23.5339 6.6667C23.1657 6.6667 22.8672 6.96518 22.8672 7.33337V24.6667C22.8672 25.0349 23.1657 25.3334 23.5339 25.3334H25.5339C25.9021 25.3334 26.2006 25.0349 26.2006 24.6667V7.33337C26.2006 6.96518 25.9021 6.6667 25.5339 6.6667H23.5339Z" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <script src="js/index.js" type="module"></script>
 </body>
 </html>
