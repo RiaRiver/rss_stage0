@@ -1,5 +1,8 @@
-const start = () => {
+/* eslint-disable import/extensions */
+import Player from './player.js';
+import data from './tracks.js';
 
-};
-
-document.addEventListener('DOMContentLoaded', start);
+document.addEventListener('DOMContentLoaded', () => {
+  const player = new Player('.player1', data);
+  player.init();
+});
