@@ -201,6 +201,7 @@ body {
   justify-content: center;
   padding: 4px;
   color: var(--lightColor);
+  cursor: pointer;
   border-radius: 4px;
 }
 
