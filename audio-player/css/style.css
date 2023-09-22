@@ -16,12 +16,16 @@
   outline: none;
 }
 
+main {
+  padding: 16px 0;
+  margin: auto;
+}
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  padding: 24px 0;
   color: var(--lightColor);
   background: var(--progressBgColor) url("../assets/img/bg.jpg") center / cover no-repeat;
   background-blend-mode: hard-light;
@@ -206,4 +210,46 @@ body {
   height: 32px;
   color: var(--lightColor);
   pointer-events: none;
+}
+
+/* Footer */
+.footer {
+  padding: 16px 0;
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 640px;
+  margin: auto;
+}
+
+.footer__copyright {
+  text-align: center;
+}
+
+.footer__link {
+  display: block;
+  flex-basis: 80px;
+}
+
+.rsschool-icon {
+  width: 80px;
+}
+
+/* Adaptive */
+@media (max-width: 600px) {
+  .footer__container {
+    gap: 16px 24px;
+    justify-content: center;
+    max-width: 360px;
+  }
+
+  .footer__copyright {
+    flex-basis: 100%;
+    order: -1;
+  }
 }
