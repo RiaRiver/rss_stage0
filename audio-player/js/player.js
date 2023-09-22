@@ -98,7 +98,7 @@ export default class Player {
     progress.style.setProperty('--progress', `${progress.value}%`);
   }
 
-  updateProgressBar() {
+  handleTimeUpdate() {
     if (this.mousedown) {
       const time = this.getProgressBarPosition();
       this.updateCurrentTime(time);
@@ -112,10 +112,12 @@ export default class Player {
       progress.value = progressPercent;
     }
     this.fillProgressBar();
+
+    if (this.audio.currentTime >= this.audio.duration) this.changeTrack();
   }
 
   getProgressBarPosition() {
-    return (this.getElement('progressBar').value * this.audio.duration) / 100;
+    return Math.floor((this.getElement('progressBar').value * this.audio.duration) / 100);
   }
 
   changePosition() {
@@ -126,12 +128,12 @@ export default class Player {
 
   changeTrack(e) {
     const isPlayed = !this.audio.paused;
-    const changeDirection = e.currentTarget.dataset.change;
+    const changeDirection = e?.currentTarget.dataset.change || 'nextTrack';
 
     this.currentTrack = this[changeDirection];
     this.setUp();
 
-    if (isPlayed) this.audio.play();
+    if (isPlayed || e === undefined) this.audio.play();
   }
 
   init() {
@@ -149,9 +151,9 @@ export default class Player {
     this.audio.addEventListener('play', this.changeAppearance.bind(this));
     this.audio.addEventListener('pause', this.changeAppearance.bind(this));
 
-    this.audio.addEventListener('timeupdate', this.updateProgressBar.bind(this));
+    this.audio.addEventListener('timeupdate', this.handleTimeUpdate.bind(this));
 
-    progress.addEventListener('input', this.updateProgressBar.bind(this));
+    progress.addEventListener('input', this.handleTimeUpdate.bind(this));
     progress.addEventListener('change', this.changePosition.bind(this));
     progress.addEventListener('mousedown', () => { this.mousedown = true; });
     progress.addEventListener('mouseup', () => { this.mousedown = false; });
