@@ -110,9 +110,22 @@ export default class Player {
     this.audio.currentTime = newPosition;
   }
 
+  changeTrack(e) {
+    const isPlayed = !this.audio.paused;
+    const changeDirection = e.currentTarget.dataset.change;
+
+    this.currentTrack = this[changeDirection];
+    this.setUp();
+
+    if (isPlayed) this.audio.play();
+  }
+
   init() {
     const progress = this.getElement('progressBar');
     const play = this.getElement('play');
+    const next = this.getElement('next');
+    const prev = this.getElement('prev');
+
     this.setUp();
 
     this.audio.addEventListener('loadedmetadata', this.render.bind(this));
@@ -130,5 +143,8 @@ export default class Player {
     progress.addEventListener('mouseup', () => { this.mousedown = false; });
     progress.addEventListener('touchstart', () => { this.mousedown = true; });
     progress.addEventListener('touchend', () => { this.mousedown = false; });
+
+    prev.addEventListener('click', this.changeTrack.bind(this));
+    next.addEventListener('click', this.changeTrack.bind(this));
   }
 }
