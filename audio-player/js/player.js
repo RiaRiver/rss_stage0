@@ -88,8 +88,8 @@ export default class Player {
     this.toggleCoverAnimation(e.type);
   }
 
-  updateCurrentTime() {
-    this.getElement('currentTime').textContent = Player.formatTime(this.audio.currentTime);
+  updateCurrentTime(time) {
+    this.getElement('currentTime').textContent = Player.formatTime(time);
   }
 
   fillProgressBar() {
@@ -99,24 +99,27 @@ export default class Player {
   }
 
   updateProgressBar() {
-    if (!this.mousedown) {
+    if (this.mousedown) {
+      const time = this.getProgressBarPosition();
+      this.updateCurrentTime(time);
+    } else {
+      this.updateCurrentTime(this.audio.currentTime);
       const progressPercent = (((this.audio.currentTime / this.audio.duration) * 100) || 0)
         .toFixed(3);
 
       const progress = this.getElement('progressBar');
 
       progress.value = progressPercent;
-      this.fillProgressBar();
     }
+    this.fillProgressBar();
   }
 
-  updateProgress() {
-    this.updateCurrentTime();
-    this.updateProgressBar();
+  getProgressBarPosition() {
+    return (this.getElement('progressBar').value * this.audio.duration) / 100;
   }
 
   changePosition() {
-    const newPosition = (this.getElement('progressBar').value * this.audio.duration) / 100;
+    const newPosition = this.getProgressBarPosition();
 
     this.audio.currentTime = newPosition;
   }
@@ -146,9 +149,9 @@ export default class Player {
     this.audio.addEventListener('play', this.changeAppearance.bind(this));
     this.audio.addEventListener('pause', this.changeAppearance.bind(this));
 
-    this.audio.addEventListener('timeupdate', this.updateProgress.bind(this));
+    this.audio.addEventListener('timeupdate', this.updateProgressBar.bind(this));
 
-    progress.addEventListener('input', this.fillProgressBar.bind(this));
+    progress.addEventListener('input', this.updateProgressBar.bind(this));
     progress.addEventListener('change', this.changePosition.bind(this));
     progress.addEventListener('mousedown', () => { this.mousedown = true; });
     progress.addEventListener('mouseup', () => { this.mousedown = false; });
