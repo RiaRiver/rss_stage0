@@ -114,7 +114,7 @@ body {
 }
 
 /* Input slider */
-.player__progress {
+.player__progressBar {
   --progress: 0%;
   width: 100%;
   height: 7px;
@@ -127,7 +127,7 @@ body {
   outline: none;
 }
 
-.player__progress::-webkit-slider-thumb {
+.player__progressBar::-webkit-slider-thumb {
   width: 8px;
   height: 16px;
   appearance: none;
@@ -136,7 +136,7 @@ body {
   box-shadow: 0 0 4px 4px rgb(0 0 0 / 75%);
 }
 
-.player__progress::-moz-range-thumb {
+.player__progressBar::-moz-range-thumb {
   width: 10px;
   height: 10px;
   appearance: none;

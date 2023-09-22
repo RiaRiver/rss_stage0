@@ -77,7 +77,41 @@ export default class Player {
     this.getElement('playIcon').setAttribute('href', icon);
   }
 
+  updateCurrentTime() {
+    this.getElement('currentTime').textContent = Player.formatTime(this.audio.currentTime);
+  }
+
+  fillProgressBar() {
+    const progress = this.getElement('progressBar');
+
+    progress.style.setProperty('--progress', `${progress.value}%`);
+  }
+
+  updateProgressBar() {
+    if (!this.mousedown) {
+      const progressPercent = (((this.audio.currentTime / this.audio.duration) * 100) || 0)
+        .toFixed(3);
+
+      const progress = this.getElement('progressBar');
+
+      progress.value = progressPercent;
+      this.fillProgressBar();
+    }
+  }
+
+  updateProgress() {
+    this.updateCurrentTime();
+    this.updateProgressBar();
+  }
+
+  changePosition() {
+    const newPosition = (this.getElement('progressBar').value * this.audio.duration) / 100;
+
+    this.audio.currentTime = newPosition;
+  }
+
   init() {
+    const progress = this.getElement('progressBar');
     const play = this.getElement('play');
     this.setUp();
 
@@ -87,5 +121,14 @@ export default class Player {
 
     this.audio.addEventListener('play', this.changePlayButton.bind(this));
     this.audio.addEventListener('pause', this.changePlayButton.bind(this));
+
+    this.audio.addEventListener('timeupdate', this.updateProgress.bind(this));
+
+    progress.addEventListener('input', this.fillProgressBar.bind(this));
+    progress.addEventListener('change', this.changePosition.bind(this));
+    progress.addEventListener('mousedown', () => { this.mousedown = true; });
+    progress.addEventListener('mouseup', () => { this.mousedown = false; });
+    progress.addEventListener('touchstart', () => { this.mousedown = true; });
+    progress.addEventListener('touchend', () => { this.mousedown = false; });
   }
 }
