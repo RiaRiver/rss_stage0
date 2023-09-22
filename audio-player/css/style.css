@@ -2,6 +2,8 @@
   --primaryColor: #030a41;
   --progressBgColor: #9899d2;
   --progressThumbColor: #ab3681;
+  --imageWrap1Color: #00ccff;
+  --imageWrap2Color: #d500d5;
   --lightColor: rgb(245, 235, 245);
   --borderRadius: 16px;
 }
@@ -63,6 +65,7 @@ body {
 }
 
 .player__img-wrapper {
+  position: relative; /* Для рамки и теней */
   display: flex;
   flex-shrink: 0;
   width: 70%;
@@ -72,6 +75,8 @@ body {
 
 .player__img-wrapper:nth-child(2) {
   padding: 4px;
+  overflow: hidden; /* Для рамки */
+  background-color: transparent; /* Для рамки */
 }
 
 .player__img-wrapper:first-child,
@@ -98,6 +103,47 @@ body {
   object-fit: cover;
   border-radius: var(--borderRadius);
 }
+
+/* Main cover frame */
+.player__img-wrapper:nth-child(2)::before {
+  position: absolute;
+  inset: -25%;
+  z-index: 0;
+  content: "";
+  background-image: conic-gradient(var(--imageWrap1Color), transparent, var(--imageWrap2Color), transparent, var(--imageWrap1Color));
+}
+
+.player__main-wrapper[data-animation="play"]::before {
+  animation: img-wrap 4s linear infinite;
+}
+
+.player__img {
+  z-index: 1;
+}
+/* Main cover frame */
+
+/* Main cover animation */
+@keyframes img-wrap {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Side cover shadow */
+.player__img-wrapper:first-child::after,
+.player__img-wrapper:last-child::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border-radius: var(--borderRadius);
+  box-shadow: inset 0 0 12px 8px rgba(255, 255, 255, 0.75);
+}
+/* Side cover shadow */
 
 .player__time {
   display: flex;

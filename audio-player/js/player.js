@@ -70,11 +70,22 @@ export default class Player {
     this.audio[action]();
   }
 
-  changePlayButton(e) {
+  togglePlayButton(e) {
     const audio = e.target;
     const icon = audio.paused ? '#play-icon' : '#pause-icon';
 
     this.getElement('playIcon').setAttribute('href', icon);
+  }
+
+  toggleCoverAnimation(action) {
+    const mainCover = this.getElement('main-wrapper');
+
+    mainCover.dataset.animation = action;
+  }
+
+  changeAppearance(e) {
+    this.togglePlayButton(e);
+    this.toggleCoverAnimation(e.type);
   }
 
   updateCurrentTime() {
@@ -132,8 +143,8 @@ export default class Player {
 
     play.addEventListener('click', this.handlePlayback.bind(this));
 
-    this.audio.addEventListener('play', this.changePlayButton.bind(this));
-    this.audio.addEventListener('pause', this.changePlayButton.bind(this));
+    this.audio.addEventListener('play', this.changeAppearance.bind(this));
+    this.audio.addEventListener('pause', this.changeAppearance.bind(this));
 
     this.audio.addEventListener('timeupdate', this.updateProgress.bind(this));
 
