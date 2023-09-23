@@ -138,15 +138,15 @@ export default class Player {
 
   init() {
     const progress = this.getElement('progressBar');
-    const play = this.getElement('play');
-    const next = this.getElement('next');
-    const prev = this.getElement('prev');
+    const playBtn = this.getElement('playBtn');
+    const nextBtn = this.getElement('nextBtn');
+    const prevBtn = this.getElement('prevBtn');
 
     this.setUp();
 
     this.audio.addEventListener('loadedmetadata', this.render.bind(this));
 
-    play.addEventListener('click', this.handlePlayback.bind(this));
+    playBtn.addEventListener('click', this.handlePlayback.bind(this));
 
     this.audio.addEventListener('play', this.changeAppearance.bind(this));
     this.audio.addEventListener('pause', this.changeAppearance.bind(this));
@@ -160,7 +160,7 @@ export default class Player {
     progress.addEventListener('touchstart', () => { this.mousedown = true; });
     progress.addEventListener('touchend', () => { this.mousedown = false; });
 
-    prev.addEventListener('click', this.changeTrack.bind(this));
-    next.addEventListener('click', this.changeTrack.bind(this));
+    prevBtn.addEventListener('click', this.changeTrack.bind(this));
+    nextBtn.addEventListener('click', this.changeTrack.bind(this));
   }
 }

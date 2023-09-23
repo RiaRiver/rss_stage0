@@ -209,7 +209,7 @@ body {
   display: block;
   width: auto;
   height: 32px;
-  color: var(--lightColor);
+  color: inherit;
   pointer-events: none;
 }
 
