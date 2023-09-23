@@ -220,37 +220,57 @@ body {
 
 .footer__container {
   display: flex;
-  flex-wrap: wrap;
+  gap: 5%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 90%;
   max-width: 640px;
   margin: auto;
+  list-style: none;
 }
 
-.footer__copyright {
+.footer__item:nth-child(2) {
+  flex-shrink: 0;
   text-align: center;
 }
 
-.footer__link {
-  display: block;
-  flex-basis: 80px;
+.footer__item:first-child {
+  display: flex;
+  flex-basis: 25%;
+  justify-content: end;
 }
 
-.rsschool-icon {
-  width: 80px;
+.footer__item:last-child {
+  flex-basis: 25%;
+}
+
+.footer__copyright {
+  font-size: 24px;
+}
+
+.footer__link {
+  color: var(--lightColor);
 }
 
 /* Adaptive */
 @media (max-width: 600px) {
   .footer__container {
+    flex-wrap: wrap;
     gap: 16px 24px;
     justify-content: center;
     max-width: 360px;
   }
 
-  .footer__copyright {
+  .footer__item:nth-child(2) {
     flex-basis: 100%;
     order: -1;
+  }
+
+  .footer__item:first-child {
+    justify-content: start;
+  }
+
+  .footer__copyright {
+    font-size: 20px;
   }
 }

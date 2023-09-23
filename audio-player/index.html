@@ -57,21 +57,27 @@
     </main>
 
     <footer class="footer">
-        <div class="container footer__container">
-            <a href="https://github.com/RiaRiver/" class="link footer__link" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon footer-icon" width="32" height="32">
-                    <use href="#github-icon"></use>
-                </svg>
-            </a>
+        <ul class="container footer__container">
+            <li class="footer__item">
+                <a href="https://github.com/RiaRiver/" class="link footer__link" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon footer-icon" width="32" height="32">
+                        <use href="#github-icon"></use>
+                    </svg>
+                </a>
+            </li>
 
-            <strong class="footer__copyright">&copy; 2023 Valeriya Vorobyeva</strong>
+            <li class="footer__item">
+                <strong class="footer__copyright">&copy; 2023 Valeriya Vorobyeva</strong>
+            </li>
 
-            <a href="https://rs.school/js-stage0/" class="footer__link" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon footer-icon rsschool-icon" height="32">
-                    <use href="#rsschool-icon"></use>
-                </svg>
-            </a>
-        </div>
+            <li class="footer__item">
+                <a href="https://rs.school/js-stage0/" class="footer__link" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon footer-icon rsschool-icon" height="32" width="80">
+                        <use href="#rsschool-icon"></use>
+                    </svg>
+                </a>
+            </li>
+        </ul>
         <!-- /.container footer__container -->
     </footer>
 
@@ -121,7 +127,7 @@
                       d="M271.3 159.1c0-14.6 4.1-26 12.2-34.1 8.1-8.1 19.5-12.2 34-12.2 14.9 0 26.3 4 34.4 12S364 144 364 158.4c0 10.5-1.8 19-5.3 25.7-3.4 6.6-8.7 12-15.2 15.6-6.7 3.7-15 5.6-24.9 5.6-10.1 0-18.4-1.6-25-4.8-6.8-3.4-12.4-8.7-16.1-15.2-4.1-7-6.2-15.7-6.2-26.2zm27.6.1c0 9 1.7 15.5 5 19.5 3.3 3.9 7.9 5.9 13.7 5.9 5.9 0 10.5-1.9 13.8-5.8s4.9-10.8 4.9-20.8c0-8.4-1.7-14.6-5.1-18.4-3.4-3.9-8-5.8-13.8-5.8-5.1-.2-10 2-13.4 5.9-3.4 3.9-5.1 10.4-5.1 19.5zm93.4-.1c0-14.6 4.1-26 12.2-34.1 8.1-8.1 19.5-12.2 34-12.2 14.9 0 26.4 4 34.4 12S485 144 485 158.4c0 10.5-1.8 19-5.3 25.7-3.4 6.6-8.7 12-15.2 15.6-6.7 3.7-15 5.6-24.9 5.6-10.1 0-18.4-1.6-25-4.8-6.8-3.4-12.4-8.7-16.1-15.2-4.1-7-6.2-15.7-6.2-26.2zm27.6.1c0 9 1.7 15.5 5 19.5 3.3 3.9 7.9 5.9 13.7 5.9 5.9 0 10.5-1.9 13.8-5.8 3.3-3.9 4.9-10.8 4.9-20.8 0-8.4-1.7-14.6-5.1-18.4-3.4-3.9-8-5.8-13.8-5.8-5.1-.2-10.1 2-13.4 5.9-3.4 3.9-5.1 10.4-5.1 19.5z" />
                 <path class="l" d="M482.1 114.4h27.6v67.4h43.1v22H482v-89.4z" />
                 <ellipse class="rss" fill="none" stroke-width="2px" transform="rotate(-37.001 420.46 67.88)" cx="420.5" cy="67.9" rx="63" ry="51.8" />
-                <path class="js" fill="var(--primary)"
+                <path class="js" fill="var(--jsColor)"
                       d="M392.4 61.3l10-7 12.3 17.5c2.1 2.8 3.7 5.8 4.9 9.1.7 2.5.5 5.2-.5 7.6-1.3 3-3.4 5.5-6.2 7.3-3.3 2.3-6.1 3.6-8.5 4-2.3.4-4.7 0-6.9-1-2.4-1.2-4.5-2.9-6.1-5.1l8.6-8c.7 1.1 1.6 2.1 2.6 2.9.7.5 1.5.8 2.4.8.7 0 1.4-.3 1.9-.7 1-.6 1.7-1.8 1.6-3-.3-1.7-1-3.4-2.1-4.7l-14-19.7zm30 11.1l9.1-7.2c1 1.2 2.3 2.1 3.7 2.6 2 .6 4.1.2 5.8-1.1 1.2-.8 2.2-1.9 2.6-3.3.6-1.8-.4-3.8-2.2-4.4-.3-.1-.6-.2-.9-.2-1.2-.1-3.3.4-6.4 1.7-5.1 2.1-9.1 2.9-12.1 2.6-2.9-.3-5.6-1.8-7.2-4.3-1.2-1.7-1.8-3.7-1.9-5.7 0-2.3.6-4.6 1.9-6.5 1.9-2.7 4.2-5 7-6.8 4.2-2.9 7.9-4.3 11.1-4.3 3.2 0 6.2 1.5 9 4.6l-9 7.1c-1.8-2.3-5.2-2.8-7.5-1l-.3.3c-1 .6-1.7 1.5-2.1 2.6-.3.8-.1 1.7.4 2.4.4.5 1 .9 1.7.9.8.1 2.2-.3 4.2-1.2 5-2.1 8.8-3.3 11.4-3.7 2.2-.4 4.5-.2 6.6.7 1.9.8 3.5 2.2 4.6 3.9 1.4 2 2.2 4.4 2.3 6.9.1 2.6-.6 5.1-2 7.3-1.8 2.7-4.1 5-6.8 6.8-5.5 3.8-10 5.4-13.6 4.8-3.9-.6-7.1-2.6-9.4-5.5z" />
             </symbol>
         </defs>
