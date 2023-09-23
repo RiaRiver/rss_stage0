@@ -5,7 +5,7 @@ export default class Player {
     this.prevTrack = 0;
     this.currentTrack = 0;
     this.nextTrack = 0;
-    this.volume = 0.05;
+    this.volume = 0.5;
     this.mousedown = false;
     this.audio = new Audio();
   }
@@ -51,6 +51,7 @@ export default class Player {
     const imgNext = this.getElement('imgNext');
     const currentTime = this.getElement('currentTime');
     const duration = this.getElement('duration');
+    const volume = this.getElement('volumeBar')
 
     const { prevTrack, currentTrack, nextTrack } = this.getTracks();
 
@@ -62,6 +63,8 @@ export default class Player {
     currentTime.textContent = Player.formatTime(this.audio.currentTime);
     duration.textContent = Player.formatTime(this.audio.duration);
     this.audio.volume = this.volume;
+    volume.value = this.volume * 100;
+    volume.value = this.fillVolumeBar();
   }
 
   handlePlayback() {
@@ -126,6 +129,41 @@ export default class Player {
     this.audio.currentTime = newPosition;
   }
 
+  toggleVolumeButton() {
+    const isMuted = this.audio.muted || this.audio.volume === 0;
+    const icon = isMuted ? '#mute-icon' : '#volume-icon';
+
+    this.getElement('volumeIcon').setAttribute('href', icon);
+    this.getElement('volumeBtn').dataset.muted = isMuted;
+  }
+
+  fillVolumeBar() {
+    const volume = this.getElement('volumeBar');
+    const value = this.audio.muted ? 0 : this.audio.volume * 100;
+
+    volume.style.setProperty('--progress', `${value}%`);
+  }
+
+  toggleMute() {
+    const isMuted = this.audio.muted || this.audio.volume === 0;
+
+    this.audio.muted = !isMuted;
+    this.audio.volume = this.audio.volume || 0.5;
+
+    this.toggleVolumeButton();
+    this.fillVolumeBar();
+  }
+
+  changeVolume(e) {
+    const newVolume = e.target.value / 100;
+
+    this.audio.muted = false;
+    this.audio.volume = newVolume;
+
+    this.fillVolumeBar();
+    this.toggleVolumeButton()
+  }
+
   changeTrack(e) {
     const isPlayed = !this.audio.paused;
     const changeDirection = e?.currentTarget.dataset.change || 'nextTrack';
@@ -141,6 +179,8 @@ export default class Player {
     const playBtn = this.getElement('playBtn');
     const nextBtn = this.getElement('nextBtn');
     const prevBtn = this.getElement('prevBtn');
+    const volume = this.getElement('volumeBar')
+    const volumeBtn = this.getElement('volumeBtn');
 
     this.setUp();
 
@@ -162,5 +202,9 @@ export default class Player {
 
     prevBtn.addEventListener('click', this.changeTrack.bind(this));
     nextBtn.addEventListener('click', this.changeTrack.bind(this));
+
+    volume.addEventListener('input', this.changeVolume.bind(this));
+    volume.addEventListener('change', this.changeVolume.bind(this));
+    volumeBtn.addEventListener('click', this.toggleMute.bind(this));
   }
 }
