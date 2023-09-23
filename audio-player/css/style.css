@@ -1,5 +1,7 @@
 /* stylelint-disable color-hex-alpha */
 :root {
+  --titleFont: "Inter", sans-serif;
+  --textFont: "Oswald", sans-serif;
   --primaryColor: #030a41;
   --progressBgColor: #9899d2;
   --progressThumbColor: #ab3681;
@@ -29,6 +31,7 @@ body {
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  font-family: var(--textFont);
   color: var(--lightColor);
   background: var(--progressBgColor) url("../assets/img/bg.jpg") center / cover no-repeat;
   background-blend-mode: hard-light;
@@ -41,6 +44,17 @@ body {
 
 .title {
   display: block;
+  font-family: var(--titleFont);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.text {
+  display: block;
+  font-family: var(--textFont);
+  font-weight: 400;
   line-height: 1.3;
   text-align: center;
 }
@@ -296,6 +310,7 @@ body {
 }
 
 .footer__copyright {
+  font-family: var(--titleFont);
   font-size: 24px;
 }
 
