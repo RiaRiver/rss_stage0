@@ -10,6 +10,7 @@
   --imageWrap1Color: #00ccff;
   --imageWrap2Color: #d500d5;
   --lightColor: #f5ebf5;
+  --accentColor: #ab3681;
   --borderRadius: 16px;
 }
 
@@ -222,6 +223,8 @@ body {
   color: var(--lightColor);
   cursor: pointer;
   border-radius: 4px;
+  transition: all 0.5s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .icon {
@@ -316,6 +319,18 @@ body {
 
 .footer__link {
   color: var(--lightColor);
+  transition: all 0.5s;
+}
+
+/* Hovers */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    color: var(--accentColor);
+  }
+
+  .footer__link:hover {
+    color: var(--accentColor);
+  }
 }
 
 /* Adaptive */
