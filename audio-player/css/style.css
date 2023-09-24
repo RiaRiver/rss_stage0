@@ -236,7 +236,7 @@ body {
 }
 
 .player__volumeControl {
-  display: flex;
+  display: none;
   flex-basis: 100%;
   gap: 16px;
   align-items: center;
@@ -330,6 +330,12 @@ body {
 
   .footer__link:hover {
     color: var(--accentColor);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .player__volumeControl {
+    display: flex;
   }
 }
 
