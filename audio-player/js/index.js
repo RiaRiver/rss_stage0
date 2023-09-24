@@ -3,6 +3,7 @@
 /* eslint-disable import/extensions */
 import getData from './getData.js';
 import Player from './player.js';
+import printSelfcheck from './selfcheck.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const url = 'tracks.json';
@@ -12,3 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
     player.init();
   });
 });
+
+printSelfcheck();
