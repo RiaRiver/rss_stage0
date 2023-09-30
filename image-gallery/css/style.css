@@ -1,0 +1,135 @@
+:root {
+  --lightColor: #f3eeee;
+  --darkColor: #2c2c2c;
+  --accentColor1: #41a6e9;
+  --accentColor2: #e243d8;
+}
+
+/* stylelint-disable-next-line selector-max-id */
+#gradient {
+  opacity: 0;
+  --color-stop-1: var(--accentColor1);
+  --color-stop-2: var(--accentColor2);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: var(--lightColor);
+  background-color: var(--darkColor);
+}
+
+svg {
+  pointer-events: none;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.icon {
+  display: block;
+  pointer-events: none;
+}
+
+.container {
+  width: 90%;
+  max-width: 1900px;
+  margin: auto;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  margin: auto;
+}
+
+.header__logo {
+  margin-right: 16px;
+  fill: url("#gradient") var(--accentColor1);
+}
+
+.search {
+  display: flex;
+  width: 50%;
+  padding: 4px;
+  margin-left: auto;
+  background-color: var(--lightColor);
+  border-radius: 8px;
+}
+
+.search__field {
+  width: 100%;
+  background: var(--lightColor);
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.search__btn,
+.cancel__btn {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.search__icon,
+.cancel__icon {
+  width: 24px;
+  height: 24px;
+  color: var(--darkColor);
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+.gallery::after {
+  flex: 0 1 32%;
+  max-width: 400px;
+  content: "";
+}
+
+.gallery__item {
+  flex-basis: 32%;
+  min-width: 240px;
+  max-width: 400px;
+  aspect-ratio: 16/10;
+  border: 1px solid var(--accentColor1);
+  border-radius: 8px;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+.footer__links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__link {
+  color: var(--lightColor);
+}
