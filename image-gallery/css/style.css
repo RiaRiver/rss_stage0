@@ -6,6 +6,7 @@
   --accentColor1: #41a6e9;
   --accentColor2: #e243d8;
   --shadowColor: rgb(64, 165, 232, 0.75);
+  --errorColor: rgb(245, 25, 245);
 }
 
 /* stylelint-disable-next-line selector-max-id */
@@ -148,6 +149,18 @@ svg {
   overflow: hidden;
   border-radius: 8px;
   box-shadow: var(--shadowColor) 0 5px 15px;
+}
+
+.gallery__error {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--errorColor);
+}
+
+.gallery__empty {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accentColor1);
 }
 
 .gallery__item-img {
