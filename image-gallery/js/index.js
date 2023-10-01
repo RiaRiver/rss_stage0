@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import { viewImages } from './actions.js';
 import Gallery from './gallery.js';
+import printSelfcheck from './selfcheck.js';
 
 const start = () => {
   const gallery = new Gallery('.gallery');
@@ -13,6 +14,8 @@ const start = () => {
   radios.forEach((radio) => radio.addEventListener('change', viewImages.bind(null, gallery)));
 
   viewImages(gallery);
+
+  printSelfcheck();
 };
 
 document.addEventListener('DOMContentLoaded', start);
