@@ -1,28 +1,18 @@
 /* eslint-disable import/extensions */
-import { handleSearch, viewStartImages } from './actions.js';
+import { viewImages } from './actions.js';
 import Gallery from './gallery.js';
 
 const start = () => {
   const gallery = new Gallery('.gallery');
 
-  const preset = [
-    'spring',
-    'summer',
-    'winter',
-    'autumn',
-    'sun',
-    'moon',
-    'cats',
-    'dogs',
-    'flowers',
-    'sea',
-  ];
-
   const searchForm = document.getElementById('searchForm');
+  const radios = document.querySelectorAll('[type="radio"]');
 
-  searchForm.addEventListener('submit', handleSearch.bind(null, gallery));
+  searchForm.addEventListener('submit', viewImages.bind(null, gallery));
 
-  viewStartImages(gallery, preset);
+  radios.forEach((radio) => radio.addEventListener('change', viewImages.bind(null, gallery)));
+
+  viewImages(gallery);
 };
 
 document.addEventListener('DOMContentLoaded', start);

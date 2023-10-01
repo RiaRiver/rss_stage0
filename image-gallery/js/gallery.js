@@ -35,13 +35,11 @@ export default class Gallery {
     this.gallery.replaceChildren(...items);
   }
 
-  renderGallery(query) {
-    if (query) {
-      getImages({ query }).then((images) => {
-        this.renderImages(images);
-      }).catch((error) => {
-        this.renderInfo('error', error);
-      });
-    }
+  renderGallery(params) {
+    getImages(params).then((images) => {
+      this.renderImages(images);
+    }).catch((error) => {
+      this.renderInfo('error', error);
+    });
   }
 }

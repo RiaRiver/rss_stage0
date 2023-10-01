@@ -23,27 +23,97 @@
 <body>
     <header class="header">
         <div class="container header__container">
-            <div class="header__wrapper">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon logo header__logo" height="32" width="32">
-                    <use href="#logo-icon"></use>
-                </svg>
-                <h1 class="title">Image Gallery</h1>
+            <div class="header__row">
+                <div class="header__wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon logo header__logo" height="32" width="32">
+                        <use href="#logo-icon"></use>
+                    </svg>
+                    <h1 class="title">Image Gallery</h1>
+                </div>
+                <form id="searchForm" class="search">
+                    <input type="text" class="search__field" name="query" placeholder="Search images" autofocus autocomplete="off">
+                    <button type="reset" class="btn cancel__btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon header__icon cancel__icon" height="32" width="32">
+                            <use href="#cancel-icon" class="icon-regular"></use>
+                            <use href="#cancel-icon" class="icon-hover"></use>
+                        </svg>
+                    </button>
+                    <button type="submit" class="btn search__btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon header__icon search__icon" height="32" width="32">
+                            <use href="#search-icon" class="icon-regular"></use>
+                            <use href="#search-icon" class="icon-hover"></use>
+                        </svg>
+                    </button>
+                </form>
             </div>
-            <form id="searchForm" class="search">
-                <input type="text" class="search__field" name="search" placeholder="Search images" autofocus autocomplete="off">
-                <button type="reset" class="btn cancel__btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon header__icon cancel__icon" height="32" width="32">
-                        <use href="#cancel-icon" class="icon-regular"></use>
-                        <use href="#cancel-icon" class="icon-hover"></use>
-                    </svg>
-                </button>
-                <button type="submit" class="btn search__btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon header__icon search__icon" height="32" width="32">
-                        <use href="#search-icon" class="icon-regular"></use>
-                        <use href="#search-icon" class="icon-hover"></use>
-                    </svg>
-                </button>
-            </form>
+            <!-- /.header__row -->
+            <div class="header__row">
+                <fieldset class="header__fieldset">
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="" checked hidden>
+                        <span class="header__label-item header__label-color header__label-color--default">None</span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="red" hidden>
+                        <span class="header__label-item header__label-color header__label-color--red"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="orange" hidden>
+                        <span class="header__label-item header__label-color header__label-color--orange"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="yellow" hidden>
+                        <span class="header__label-item header__label-color header__label-color--yellow"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="green" hidden>
+                        <span class="header__label-item header__label-color header__label-color--green"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="teal" hidden>
+                        <span class="header__label-item header__label-color header__label-color--teal"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="blue" hidden>
+                        <span class="header__label-item header__label-color header__label-color--blue"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="purple" hidden>
+                        <span class="header__label-item header__label-color header__label-color--purple"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="magenta" hidden>
+                        <span class="header__label-item header__label-color header__label-color--magenta"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="black" hidden>
+                        <span class="header__label-item header__label-color header__label-color--black"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="white" hidden>
+                        <span class="header__label-item header__label-color header__label-color--white"></span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__color-radio" type="radio" name="color" value="black_and_white" hidden>
+                        <span class="header__label-item header__label-color header__label-color--black-and-white"></span>
+                    </label>
+                </fieldset>
+                <fieldset class="header__fieldset">
+                    <label class="header__label">
+                        <input form="searchForm" class="header__page-radio" type="radio" name="per_page" value="8" checked hidden>
+                        <span class="header__label-item header__label-page">8</span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__page-radio" type="radio" name="per_page" value="16" hidden>
+                        <span class="header__label-item header__label-page">16</span>
+                    </label>
+                    <label class="header__label">
+                        <input form="searchForm" class="header__page-radio" type="radio" name="per_page" value="28" hidden>
+                        <span class="header__label-item header__label-page">28</span>
+                    </label>
+                </fieldset>
+            </div>
+            <!-- /.header__row -->
         </div>
         <!-- /.container -->
     </header>
