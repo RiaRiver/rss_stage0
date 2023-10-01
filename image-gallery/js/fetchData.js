@@ -10,7 +10,7 @@ const fetchFromAPI = async (url) => {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`Network response was not OK: ${JSON.stringify((await response.json()).errors[0])}.`);
+      throw new Error(`Network response was not OK: ${await response.text()}.`);
     }
     const data = await response.json();
     return data;
