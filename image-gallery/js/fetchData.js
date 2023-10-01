@@ -2,7 +2,9 @@
 import { getRandomArrayItem } from './utils.js';
 
 const keys = [
-  'NnmSntb19I71Q1zklDu_nPX1f55CiF6r3VNek1e8I_w',
+  'eytGsKDBCDmCxxwKsqDyCeFzLnq0eAdtiSkh_LZx9dQ',
+  'htU-ZuWqwWBU4G8btJPmdEwX0TzlMQjHCZuqhF-r2E8',
+  '4vhWeQNjmiH026af2QmcGyPAHnxQNTBSYCp9ALEvNuE',
 ];
 
 // eslint-disable-next-line consistent-return
