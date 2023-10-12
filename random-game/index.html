@@ -21,11 +21,13 @@
         <div class="container">
             <div class="game">
                 <form class="game__block">
-                    <fieldset class="inputs">
-                        <input type="text" name="field1" class="game__field" readonly autofocus>
-                        <input type="text" name="field2" class="game__field" readonly>
-                        <input type="text" name="field3" class="game__field" readonly>
-                        <input type="text" name="field4" class="game__field" readonly>
+                    <fieldset class="difficulty">
+                        <input class="difficulty__level" type="radio" name="difficulty" value="easy" id="easy-level" hidden disabled>
+                        <label for="easy-level" class="difficulty__label">Easy</label>
+                        <input class="difficulty__level" type="radio" name="difficulty" value="medium" id="medium-level" checked hidden disabled>
+                        <label for="medium-level" class="difficulty__label">Medium</label>
+                        <input class="difficulty__level" type="radio" name="difficulty" value="hard" id="hard-level" hidden disabled>
+                        <label for="hard-level" class="difficulty__label">Hard</label>
                     </fieldset>
                     <fieldset class="inputs" data-mode="medium">
                         <input type="text" name="field" class="game__field" readonly autofocus>
