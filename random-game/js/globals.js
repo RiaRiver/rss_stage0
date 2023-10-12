@@ -7,3 +7,6 @@ export const state = {
   },
 };
 
+export const selectors = {
+  difficultyBtns: '.difficulty__level',
+};
