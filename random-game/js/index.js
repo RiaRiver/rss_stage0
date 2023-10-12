@@ -23,6 +23,10 @@ const start = () => {
 
   game.addEventListener('click', handleBtnClick);
   game.addEventListener('mousedown', preventInputBlur);
+
+  game.addEventListener('reset', () => {
+    startGame();
+  });
 };
 
 document.addEventListener('DOMContentLoaded', start);
