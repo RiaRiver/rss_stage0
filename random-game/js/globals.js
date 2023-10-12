@@ -9,4 +9,6 @@ export const state = {
 
 export const selectors = {
   difficultyBtns: '.difficulty__level',
+  inputsBlock: '.inputs',
+  indicators: '.game__indicators',
 };
