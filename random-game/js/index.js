@@ -1,9 +1,8 @@
 /* eslint-disable import/extensions */
-import CodeGame from './codeGame.js';
+import startGame from './startGame.js';
 
 const start = () => {
-  const newGame = new CodeGame(4);
-  newGame.generateCode();
+  startGame();
 };
 
 document.addEventListener('DOMContentLoaded', start);
