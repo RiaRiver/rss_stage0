@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Guess the code</title>
@@ -16,15 +19,69 @@
 
     <div class="main main">
         <div class="container">
+            <div class="game">
+                <form class="game__block">
+                    <fieldset class="inputs">
+                        <input type="text" name="field1" class="game__field" readonly autofocus>
+                        <input type="text" name="field2" class="game__field" readonly>
+                        <input type="text" name="field3" class="game__field" readonly>
+                        <input type="text" name="field4" class="game__field" readonly>
+                    </fieldset>
+                    <fieldset class="inputs" data-mode="medium">
+                        <input type="text" name="field" class="game__field" readonly autofocus>
+                        <input type="text" name="field" class="game__field" readonly>
+                        <input type="text" name="field" class="game__field" readonly>
+                        <input type="text" name="field" class="game__field" readonly>
+                    </fieldset>
+                    <div class="game__info">
+                        <p class="game__error" hidden></p>
+                        <ul class="game__indicators">
+                            <li class="game__indicator"></li>
+                            <li class="game__indicator"></li>
+                            <li class="game__indicator"></li>
+                            <li class="game__indicator"></li>
+                        </ul>
+                    </div>
+                    <fieldset class="game__buttons">
+                        <input type="button" value="1" class="game__btn game__input-btn">
+                        <input type="button" value="2" class="game__btn game__input-btn">
+                        <input type="button" value="3" class="game__btn game__input-btn">
+                        <input type="button" value="4" class="game__btn game__input-btn">
+                        <input type="button" value="5" class="game__btn game__input-btn">
+                        <input type="button" value="6" class="game__btn game__input-btn">
+                        <input type="button" value="7" class="game__btn game__input-btn">
+                        <input type="button" value="8" class="game__btn game__input-btn">
+                        <input type="button" value="9" class="game__btn game__input-btn">
+                        <input type="reset" value="&#8635;" class="game__btn">
+                        <input type="button" value="0" class="game__btn game__input-btn">
+                        <input type="submit" value="&crarr;" class="game__btn">
+                    </fieldset>
+                </form>
+                <div class="attempts">
+                    <h3 class="attempts__title">Attempts</h3>
+                    <div class="attempts__list">
+                    </div>
+                </div>
+                <!-- /.attempts -->
+            </div>
+            <!-- /.game -->
         </div>
         <!-- /.container -->
     </div>
-
     <footer class="footer">
-        <div class="container"></div>
+
+        <div class="container">
+        </div>
         <!-- /.container -->
     </footer>
 
+    <dialog class="modal modal-win" id="modal-win">
+        <div class="modal__container">
+            <h3>Congratulation!</h3>
+            <p class="modal__text"></p>
+            <button class="modal__btn" data-close="modal-win">New Game</button>
+        </div>
+    </dialog>
     <script type="module" src="js/index.js"></script>
 </body>
 </html>
