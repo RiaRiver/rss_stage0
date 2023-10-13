@@ -14,4 +14,14 @@ export const selectors = {
   game: '.game',
   controlBtn: '.game__input-btn',
   field: '.game__field',
+  error: '.game__error',
+  attempts: '.attempts__list',
+  modalText: '.modal__text',
+};
+
+export const msgs = {
+  getWinMsg: (attemptsCount) => `You guessed right code in ${attemptsCount} attempts`,
+  duplicateDigitsMsg: 'Duplicated digits!',
+  duplicateAttemptMsg: 'Duplicated guess!',
+  lackDigits: 'Lack of digits!',
 };

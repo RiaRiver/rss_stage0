@@ -1,8 +1,10 @@
 /* eslint-disable import/extensions */
+import handleSubmit from './submit.js';
 import { handleBtnClick } from './controls.js';
 import { preventInputBlur } from './focus.js';
 import { selectors, state } from './globals.js';
 import startGame from './startGame.js';
+import initModals from './modal.js';
 
 const changeDifficulty = (event) => {
   const difficulty = event.target.value;
@@ -27,6 +29,10 @@ const start = () => {
   game.addEventListener('reset', () => {
     startGame();
   });
+
+  game.addEventListener('submit', handleSubmit);
+
+  initModals('.modal-win', startGame);
 };
 
 document.addEventListener('DOMContentLoaded', start);

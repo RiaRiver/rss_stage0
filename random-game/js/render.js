@@ -29,3 +29,23 @@ export const renderFields = () => {
   inputsBlock.replaceChildren(...inputs);
   indicatorsBlock.replaceChildren(...indicators);
 };
+
+export const renderAttempt = (info) => {
+  const attempts = document.querySelector(selectors.attempts);
+
+  const template = document.createElement('template');
+  template.innerHTML = `
+<li class="attempt">
+  <span class="guess">${info.guess}</span>
+  <span class="correctPosition">${info.correctPositions}</span>
+  <span class="correctDigit">${info.correctDigits}</span>
+</li>
+      `;
+
+  attempts.appendChild(template.content);
+};
+
+export const clearAttempts = () => {
+  const attempts = document.querySelector(selectors.attempts);
+  attempts.innerHTML = '';
+};

@@ -2,9 +2,10 @@
 import CodeGame from './codeGame.js';
 import { setFocusField } from './focus.js';
 import { state } from './globals.js';
-import { renderFields } from './render.js';
+import { renderFields, clearAttempts } from './render.js';
 
 const startGame = () => {
+  clearAttempts();
   renderFields();
   setFocusField('first');
 

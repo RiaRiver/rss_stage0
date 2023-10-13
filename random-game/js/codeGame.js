@@ -4,9 +4,8 @@ import { getRandomInt } from './utils.js';
 class CodeGame {
   constructor(digitsNumber) {
     this.code = '';
-    this.digitsNumber = digitsNumber || 4;
-    this.guesses = [];
-    this.attempts = 0;
+    this.digitsNumber = +digitsNumber || 4;
+    this.attempts = [];
     this.base = 10;
   }
 
@@ -16,6 +15,10 @@ class CodeGame {
 
       if (!this.code.includes(digit)) this.code += digit;
     }
+  }
+
+  isDuplicatedGuess(guess) {
+    return !!this.attempts.find((attempt) => attempt.guess === guess);
   }
 
   guessCheck(guess) {
@@ -34,10 +37,14 @@ class CodeGame {
     });
 
     const info = { guess, correctPositions, correctDigits };
-    this.guesses.push(info);
+    this.attempts.push(info);
 
     const isCorrect = correctPositions === this.digitsNumber;
     return { isCorrect, info };
+  }
+
+  getAttemptsCount() {
+    return this.attempts.length;
   }
 }
 
