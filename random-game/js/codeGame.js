@@ -7,6 +7,15 @@ class CodeGame {
     this.digitsNumber = +digitsNumber || 4;
     this.attempts = [];
     this.base = 10;
+
+    this.setValidChars();
+  }
+
+  setValidChars() {
+    this.validChars = '';
+    for (let i = 0; i < this.base; i += 1) {
+      this.validChars += i;
+    }
   }
 
   generateCode() {

@@ -3,6 +3,15 @@ import { hideError } from './error.js';
 import { getFocusedField, setFocusField } from './focus.js';
 import { selectors } from './globals.js';
 
+export const handleDigitInput = (event) => {
+  hideError();
+
+  const field = getFocusedField();
+  field.value = event.key;
+
+  setFocusField('next');
+};
+
 export const handleBtnClick = (event) => {
   hideError();
 

@@ -5,6 +5,7 @@ import { preventInputBlur } from './focus.js';
 import { selectors, state } from './globals.js';
 import startGame from './startGame.js';
 import initModals from './modal.js';
+import handleKeyPress from './keyControls.js';
 
 const changeDifficulty = (event) => {
   const difficulty = event.target.value;
@@ -33,6 +34,8 @@ const start = () => {
   game.addEventListener('submit', handleSubmit);
 
   initModals('.modal-win', startGame);
+
+  document.addEventListener('keydown', handleKeyPress);
 };
 
 document.addEventListener('DOMContentLoaded', start);
