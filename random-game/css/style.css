@@ -1,14 +1,14 @@
 :root {
-  --game-height: 505px;
+  --game-height: 465px;
   --mainColor: #aab7d5;
   --accentColor: #1937f5;
   --darkColor: #444053;
   --lightColor: #e6e6f0;
-  --correctColor: rgb(25, 205, 25);
+  --correctColor: #19cd19;
   --rgbCorrect: 25, 205, 25;
-  --semiCorrectColor: rgb(255, 255, 0);
+  --semiCorrectColor: #ffff00;
   --rgbSemiCorrect: 255, 255, 0;
-  --errorColor: rgb(220, 20, 60);
+  --errorColor: #dc143c;
   --rgbError: 220, 20, 60;
 }
 
@@ -16,46 +16,87 @@
   box-sizing: border-box;
 }
 
+svg {
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
 ul,
 ol,
+button,
 fieldset,
 input,
 label,
+h1,
 h3,
 p {
   padding: 0;
   margin: 0;
   list-style: none;
+  background: none;
   border: none;
 }
 
+button,
+a,
+input,
+label {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
   font-family: "Victor Mono", monospace;
+  color: var(--lightColor);
   background-color: var(--mainColor);
 }
 
 .header {
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
 }
 
-.container {
-  width: 96%;
-  margin: auto;
+.header__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__btn {
+  line-height: 0;
+}
+
+.header__btn svg {
+  line-height: 0;
+  fill: var(--lightColor);
+  transition: fill 0.5s;
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  margin: auto;
+  background-color: var(--darkColor);
+  border-radius: 24px;
 }
 
 .game {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  max-width: 600px;
   height: var(--game-height);
-  padding: 20px;
-  margin: auto;
   color: var(--lightColor);
   background-color: var(--darkColor);
-  border-radius: 24px;
 }
 
 .game__block {
@@ -94,11 +135,6 @@ body {
 
 .difficulty__label:last-of-type {
   --rgb: var(--rgbError);
-}
-
-.difficulty__label:hover {
-  color: var(--darkColor);
-  background: rgba(var(--rgb), 1);
 }
 
 .difficulty__level:checked + .difficulty__label {
@@ -223,14 +259,14 @@ body {
   margin-right: 8px;
 }
 
-.correctPosition {
+.correct-position {
   padding: 4px;
   color: var(--darkColor);
   background-color: var(--correctColor);
   border-radius: 4px;
 }
 
-.correctDigit {
+.correct-digit {
   padding: 4px;
   color: var(--darkColor);
   background-color: var(--semiCorrectColor);
@@ -238,6 +274,44 @@ body {
 }
 
 .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+
+  color: var(--lightColor);
+  background-color: var(--darkColor);
+  border-radius: 24px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__copyright {
+  font-size: 20px;
+}
+
+.icon-regular {
+  fill: var(--lightColor);
+  transition: fill 0.5s;
+}
+
+/* Hovers */
+@media (hover: hover) and (pointer: fine) {
+  .difficulty__label:hover {
+    color: var(--darkColor);
+    background: rgba(var(--rgb), 1);
+  }
+
+  .footer__link:hover .icon-regular {
+    fill: var(--accentColor);
+  }
+
+  .header__btn:hover .icon {
+    fill: var(--accentColor);
+  }
 }
 
 /* Scroll */
@@ -257,12 +331,57 @@ body {
 }
 
 /* Adaptive */
+@media (max-width: 600px) and (hover: none) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    border-radius: 0;
+  }
+
+  .game__buttons {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) and (pointer: coarse) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    border-radius: 0;
+  }
+
+  .game__buttons {
+    width: 50%;
+  }
+}
+
 @media (max-width: 600px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    border-radius: 0;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .header__btn svg {
+    width: 20px;
+  }
+
+  .game__buttons {
+    width: 60%;
+  }
+
   .game {
+    flex: 1 1 100%;
     flex-direction: column;
     gap: 20px;
     align-items: center;
-    height: 100dvh;
   }
 
   .game__block {
