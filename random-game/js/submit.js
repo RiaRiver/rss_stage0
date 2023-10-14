@@ -2,6 +2,7 @@
 import { viewError } from './error.js';
 import { msgs, selectors, state } from './globals.js';
 import { renderAttempt } from './render.js';
+import { saveResult } from './results.js';
 import { getFormData, hasDuplicateChars } from './utils.js';
 
 const handleWin = () => {
@@ -22,7 +23,10 @@ const handleSubmit = (event) => {
 
   const checkResult = state.game.guessCheck(guess);
   renderAttempt(checkResult.info);
-  if (checkResult.isCorrect) handleWin();
+  if (checkResult.isCorrect) {
+    saveResult();
+    handleWin();
+  }
 };
 
 export default handleSubmit;

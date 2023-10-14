@@ -298,11 +298,109 @@ body {
   transition: fill 0.5s;
 }
 
+/* Modals */
+.modal {
+  min-width: 280px;
+  max-width: 600px;
+  background-color: var(--mainColor);
+}
+
+.modal__btn {
+  padding: 8px;
+  border: 2px solid var(--darkColor);
+}
+
+.modal::backdrop {
+  background-color: rgba(68, 64, 83, 0.4);
+}
+
+.modal-results__title {
+  text-align: center;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  display: flex;
+  align-items: center;
+  width: 19px;
+  height: 19px;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.close-icon {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  stroke: currentColor;
+  transition: all 0.5s;
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-info__link {
+  font-weight: 700;
+  color: var(--accentColor);
+  text-decoration: none;
+}
+
+.modal-info__example {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Table */
+.results {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 8px;
+}
+
+tbody,
+thead,
+tr {
+  display: contents;
+}
+
+td {
+  padding: 8px;
+  text-align: center;
+}
+
+td span {
+  padding: 2px;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+td[data-color="easy"] span {
+  background-color: var(--semiCorrectColor);
+}
+
+td[data-color="medium"] span {
+  background-color: var(--correctColor);
+}
+
+td[data-color="hard"] span {
+  background-color: var(--errorColor);
+}
+
 /* Hovers */
 @media (hover: hover) and (pointer: fine) {
   .difficulty__label:hover {
     color: var(--darkColor);
     background: rgba(var(--rgb), 1);
+  }
+
+  .modal__close-btn:hover {
+    color: var(--accentColor);
   }
 
   .footer__link:hover .icon-regular {
@@ -399,5 +497,10 @@ body {
   .attempts__list {
     width: auto;
     padding-right: 16px;
+  }
+
+  .results {
+    grid-template-columns: repeat(4, min-content);
+    font-size: 12px;
   }
 }

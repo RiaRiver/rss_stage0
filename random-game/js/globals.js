@@ -17,6 +17,12 @@ export const selectors = {
   error: '.game__error',
   attempts: '.attempts__list',
   modalText: '.modal__text',
+  resultsBtn: '.results-btn',
+  modalResults: '.modal-results',
+  resultsBlock: '.modal-results__container',
+  modalClose: '[data-close]',
+  modalInfo: '.modal-info',
+  infoBtn: '.info-btn',
 };
 
 export const msgs = {

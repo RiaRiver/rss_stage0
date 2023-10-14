@@ -3,8 +3,9 @@ import CodeGame from './codeGame.js';
 import { setFocusField } from './focus.js';
 import { state } from './globals.js';
 import { renderFields, clearAttempts } from './render.js';
+import { saveResult } from './results.js';
 
-const startGame = () => {
+export const startGame = () => {
   clearAttempts();
   renderFields();
   setFocusField('first');
@@ -14,4 +15,7 @@ const startGame = () => {
   state.game.generateCode();
 };
 
-export default startGame;
+export const resetGame = () => {
+  if (state.game.attempts.length) saveResult('reset');
+  startGame();
+};

@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+import { selectors } from './globals.js';
+
 // CloseOnBackdrop
 const handleMouseDown = (callback, event) => {
   const modal = event.target;
@@ -11,12 +14,10 @@ const handleMouseDown = (callback, event) => {
 const handleClick = (callback, event) => {
   const { target, currentTarget: modal } = event;
 
-  if (target.tagName === 'BUTTON') {
-    if (target.dataset.close) {
-      modal.close();
+  if (target.matches(selectors.modalClose)) {
+    modal.close();
 
-      if (callback) callback();
-    }
+    if (callback) callback();
   }
 };
 

@@ -11,3 +11,11 @@ export const hasDuplicateChars = (str) => {
   const strSet = new Set(str);
   return str.length !== strSet.size;
 };
+
+export const getDateFormatted = (date) => new Intl.DateTimeFormat('ru-RU', {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+}).format(new Date(date));

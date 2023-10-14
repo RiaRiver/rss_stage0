@@ -109,6 +109,53 @@
         </div>
     </dialog>
 
+    <dialog class="modal modal-results" id="modal-results">
+        <div class="modal__container">
+            <h3 class="modal-results__title">Last 10 results</h3>
+            <div class="modal-results__container"></div>
+            <button class="modal__close-btn" data-close="modal-results">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon close-icon" width="15" height="15">
+                    <use href="#modal-close"></use>
+                </svg>
+            </button>
+        </div>
+    </dialog>
+
+    <dialog class="modal modal-info" id="modal-info">
+        <div class="modal__container">
+            <h3>Game</h3>
+            <p class="modal-info__description">This game is a variation of the classic game <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" class="modal-info__link">Bulls and Cows</a>.</p>
+            <h3>Rules</h3>
+            <p class="modal-info__rules">The goal of the game is to guess the code.
+                The code consists of digits from 0&nbsp;to&nbsp;9, the digits are not repeated.
+                The player enters his guess and receives an answer in the format: the number of digits in the correct position and the number of correct digits in the wrong position.
+            </p>
+            <h3>Example</h3>
+            <p class="modal-info__example">
+                <span>Code: 4321</span>
+                <span>Attempt: 0423</span>
+                <span>Result: 0423
+                    <span class="correct-position">1</span>
+                    <span class="correct-digit">2</span>
+                </span>
+            </p>
+            <button class="modal__close-btn" data-close="modal-info">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon close-icon" width="15" height="15">
+                    <use href="#modal-close"></use>
+                </svg>
+            </button>
+        </div>
+    </dialog>
+
+    <svg id="modal-icons" class="svg-symbols hidden">
+        <defs>
+            <symbol id="modal-close" viewBox="0 0 19 19" fill="none">
+                <path d="M2 16.8507L17 2.00001" stroke-width="3" />
+                <path d="M2 2.14928L17 17" stroke-width="3" />
+            </symbol>
+        </defs>
+    </svg>
+
     <svg id="links-icons" class="svg-symbols hidden" style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
         <defs>
             <symbol id="github-icon" viewBox="0 0 500 500">

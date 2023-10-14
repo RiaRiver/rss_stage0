@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 import { selectors, state } from './globals.js';
+import { getDateFormatted } from './utils.js';
 
 export const renderFields = () => {
   const inputsBlock = document.querySelector(selectors.inputsBlock);
@@ -37,8 +38,8 @@ export const renderAttempt = (info) => {
   template.innerHTML = `
 <li class="attempt">
   <span class="guess">${info.guess}</span>
-  <span class="correctPosition">${info.correctPositions}</span>
-  <span class="correctDigit">${info.correctDigits}</span>
+  <span class="correct-position">${info.correctPositions}</span>
+  <span class="correct-digit">${info.correctDigits}</span>
 </li>
       `;
 
@@ -48,4 +49,43 @@ export const renderAttempt = (info) => {
 export const clearAttempts = () => {
   const attempts = document.querySelector(selectors.attempts);
   attempts.innerHTML = '';
+};
+
+export const renderResults = (results) => {
+  const resultsBlock = document.querySelector(selectors.resultsBlock);
+
+  const resultsTable = document.createElement('TABLE');
+  resultsTable.className = 'results';
+  const resultsHead = document.createElement('THEAD');
+  const resultsBody = document.createElement('TBODY');
+  resultsTable.append(resultsHead, resultsBody);
+
+  const templateHeadTr = document.createElement('template');
+  templateHeadTr.innerHTML = `
+  <tr>
+  <th>#</th>
+  <th>Date</th>
+  <th>Code</th>
+  <th>Attempts</th>
+  </tr>
+`;
+
+  resultsHead.append(templateHeadTr.content);
+
+  results.forEach((result, ind) => {
+    const templateTr = document.createElement('template');
+    templateTr.innerHTML = `
+
+    <tr>
+        <td>${ind + 1}</td>
+        <td>${getDateFormatted(result.date)}</td>
+        <td data-color="${result.mode}"><span>${result.code}</span></td>
+        <td>${result.attempts}</td>
+    </tr>
+  `;
+
+    resultsBody.append(templateTr.content);
+  });
+
+  resultsBlock.replaceChildren(resultsTable);
 };
