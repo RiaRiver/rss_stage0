@@ -351,7 +351,8 @@ body {
   text-decoration: none;
 }
 
-.modal-info__example {
+.modal-info__example,
+.modal-info__control {
   display: flex;
   flex-direction: column;
   gap: 8px;
