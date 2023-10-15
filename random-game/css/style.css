@@ -155,6 +155,11 @@ body {
   border: none;
 }
 
+.inputs[data-mode="easy"],
+.inputs[data-mode="easy"] + * .game__indicators {
+  justify-content: space-around;
+}
+
 .game__field {
   width: 15%;
   aspect-ratio: 1/1;
@@ -276,10 +281,10 @@ body {
 
 .footer {
   display: flex;
+  gap: 16px;
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
-
   color: var(--lightColor);
   background-color: var(--darkColor);
   border-radius: 24px;
