@@ -1,4 +1,5 @@
 /* eslint-disable import/extensions */
+import { resetIndicator } from './animate.js';
 import CodeGame from './codeGame.js';
 import { setFocusField } from './focus.js';
 import { state } from './globals.js';
@@ -7,6 +8,7 @@ import { saveResult } from './results.js';
 
 export const startGame = () => {
   clearAttempts();
+  resetIndicator();
   renderFields();
   setFocusField('first');
 

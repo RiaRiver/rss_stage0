@@ -1,4 +1,5 @@
 /* eslint-disable import/extensions */
+import { animateIndicator } from './animate.js';
 import { viewError } from './error.js';
 import { msgs, selectors, state } from './globals.js';
 import { renderAttempt } from './render.js';
@@ -23,6 +24,7 @@ const handleSubmit = (event) => {
 
   const checkResult = state.game.guessCheck(guess);
   renderAttempt(checkResult.info);
+  animateIndicator(checkResult.info);
   if (checkResult.isCorrect) {
     saveResult();
     handleWin();

@@ -10,6 +10,7 @@
   --rgbSemiCorrect: 255, 255, 0;
   --errorColor: #dc143c;
   --rgbError: 220, 20, 60;
+  --greyColor: rgb(115, 115, 120);
 }
 
 * {
@@ -502,5 +503,52 @@ td[data-color="hard"] span {
   .results {
     grid-template-columns: repeat(4, min-content);
     font-size: 12px;
+  }
+}
+
+/* Animation */
+.game__indicator[data-type="position"] {
+  --animateColor: var(--correctColor);
+}
+
+.game__indicator[data-type="digit"] {
+  --animateColor: var(--semiCorrectColor);
+}
+
+.game__indicator[data-type="none"] {
+  --animateColor: var(--greyColor);
+}
+
+.game__indicators[data-animated] .game__indicator {
+  animation: indicators 0.1s linear forwards;
+}
+
+.game__indicators[data-animated] .game__indicator:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.game__indicators[data-animated] .game__indicator:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.game__indicators[data-animated] .game__indicator:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.game__indicators[data-animated] .game__indicator:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.game__indicators[data-animated] .game__indicator:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+@keyframes indicators {
+  from {
+    background-color: var(--lightColor);
+  }
+
+  to {
+    background-color: var(--animateColor);
   }
 }
