@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#444053">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#444053">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#444053">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Guess the code</title>
+</head>
+
+<body>
+    <main class="main">
+        <header class="header">
+            <div class="header__item"><button class="header__btn info-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon info-icon" width="30" height="30">
+                        <use href="#info-icon"></use>
+                    </svg>
+                </button>
+            </div>
+            <h1>Guess the Code</h1>
+            <div class="header__item">
+                <button class="header__btn results-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon results-icon" width="30" height="30">
+                        <use href="#results-icon"></use>
+                    </svg>
+                </button>
+            </div>
+            <!-- /.container -->
+        </header>
+
+        <div class="game">
+            <form class="game__block">
+                <fieldset class="difficulty">
+                    <input class="difficulty__level" type="radio" name="difficulty" value="easy" id="easy-level" hidden disabled>
+                    <label for="easy-level" class="difficulty__label">Easy</label>
+                    <input class="difficulty__level" type="radio" name="difficulty" value="medium" id="medium-level" checked hidden disabled>
+                    <label for="medium-level" class="difficulty__label">Medium</label>
+                    <input class="difficulty__level" type="radio" name="difficulty" value="hard" id="hard-level" hidden disabled>
+                    <label for="hard-level" class="difficulty__label">Hard</label>
+                </fieldset>
+                <fieldset class="inputs" data-mode="medium">
+                    <input type="text" name="field" class="game__field" readonly autofocus>
+                    <input type="text" name="field" class="game__field" readonly>
+                    <input type="text" name="field" class="game__field" readonly>
+                    <input type="text" name="field" class="game__field" readonly>
+                </fieldset>
+                <div class="game__info">
+                    <p class="game__error" hidden></p>
+                    <ul class="game__indicators">
+                        <li class="game__indicator"></li>
+                        <li class="game__indicator"></li>
+                        <li class="game__indicator"></li>
+                        <li class="game__indicator"></li>
+                    </ul>
+                </div>
+                <fieldset class="game__buttons">
+                    <input type="button" value="1" class="game__btn game__input-btn">
+                    <input type="button" value="2" class="game__btn game__input-btn">
+                    <input type="button" value="3" class="game__btn game__input-btn">
+                    <input type="button" value="4" class="game__btn game__input-btn">
+                    <input type="button" value="5" class="game__btn game__input-btn">
+                    <input type="button" value="6" class="game__btn game__input-btn">
+                    <input type="button" value="7" class="game__btn game__input-btn">
+                    <input type="button" value="8" class="game__btn game__input-btn">
+                    <input type="button" value="9" class="game__btn game__input-btn">
+                    <input type="reset" value="&#8635;" class="game__btn">
+                    <input type="button" value="0" class="game__btn game__input-btn">
+                    <input type="submit" value="&crarr;" class="game__btn">
+                </fieldset>
+            </form>
+            <div class="attempts">
+                <h3 class="attempts__title">Attempts</h3>
+                <div class="attempts__list">
+                </div>
+            </div>
+            <!-- /.attempts -->
+        </div>
+        <!-- /.game -->
+
+        <footer class="footer">
+            <strong class="footer__item footer__copyright">&copy; 2023 Valeriya Vorobyeva</strong>
+            <ul class="footer__links">
+                <li class="footer__link-item">
+                    <a href="https://github.com/RiaRiver/" class="link footer__link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon footer__icon" width="32" height="32">
+                            <use href="#github-icon" class="icon-regular"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="footer__link-item">
+                    <a href="https://rs.school/js-stage0/" class="link footer__link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon footer-icon rsschool-icon" height="32" width="80">
+                            <use href="#rsschool-icon" class="icon-regular"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </main>
+
+    <dialog class="modal modal-win" id="modal-win">
+        <div class="modal__container">
+            <h3>Congratulation!</h3>
+            <p class="modal__text"></p>
+            <button class="modal__btn" data-close="modal-win">New Game</button>
+        </div>
+    </dialog>
+
+    <dialog class="modal modal-results" id="modal-results">
+        <div class="modal__container">
+            <h3 class="modal-results__title">Last 10 results</h3>
+            <div class="modal-results__container"></div>
+            <button class="modal__close-btn" data-close="modal-results">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon close-icon" width="15" height="15">
+                    <use href="#modal-close"></use>
+                </svg>
+            </button>
+        </div>
+    </dialog>
+
+    <dialog class="modal modal-info" id="modal-info">
+        <div class="modal__container">
+            <h3>Game</h3>
+            <p class="modal-info__description">This game is a variation of the classic game <a href="https://en.wikipedia.org/wiki/Bulls_and_Cows" class="modal-info__link">Bulls and Cows</a>.</p>
+            <h3>Rules</h3>
+            <p class="modal-info__rules">The goal of the game is to guess the code.
+                The code consists of digits from 0&nbsp;to&nbsp;9, the digits are not repeated.
+                The player enters his guess and receives an answer in the format: the number of digits in the correct position and the number of correct digits in the wrong position.
+            </p>
+            <h3>Example</h3>
+            <p class="modal-info__example">
+                <span>Code: 4321</span>
+                <span>Attempt: 0423</span>
+                <span>Result: 0423
+                    <span class="correct-position">1</span>
+                    <span class="correct-digit">2</span>
+                </span>
+            </p>
+            <h3>Indicator</h3>
+            <p class="modal-info__indicator">The indicator under the input field shows the result of the last attempt. note that the colors of the indicator are not positionally related to the fields
+                above it, but only display the number of correctly guessed positions and numbers.
+            </p>
+            <h3>Control</h3>
+            <p class="modal-info__control">In addition to mouse control, keyboard control is available:
+                <span><b>Numeric keys</b> - digit input</span>
+                <span><b>Arrow keys</b> - navigation through focused input data</span>
+                <span><b>Backspace</b> - clear the previous focus was entered if it is cleared</span>
+                <span><b>Input</b> - check the attempt</span>
+            </p>
+            <button class="modal__close-btn" data-close="modal-info">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon close-icon" width="15" height="15">
+                    <use href="#modal-close"></use>
+                </svg>
+            </button>
+        </div>
+    </dialog>
+
+    <svg id="modal-icons" class="svg-symbols hidden">
+        <defs>
+            <symbol id="modal-close" viewBox="0 0 19 19" fill="none">
+                <path d="M2 16.8507L17 2.00001" stroke-width="3" />
+                <path d="M2 2.14928L17 17" stroke-width="3" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <svg id="links-icons" class="svg-symbols hidden" style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="github-icon" viewBox="0 0 500 500">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M250.002 0C111.948 0 0 111.927 0 250.002C0 360.46 71.6332 454.171 170.967 487.228C183.461 489.543 188.048 481.805 188.048 475.202C188.048 469.24 187.816 449.547 187.709 428.657C118.158 443.78 103.482 399.16 103.482 399.16C92.1093 370.263 75.7234 362.579 75.7234 362.579C53.0408 347.063 77.4332 347.382 77.4332 347.382C102.538 349.145 115.757 373.144 115.757 373.144C138.054 411.364 174.241 400.315 188.508 393.927C190.751 377.769 197.23 366.74 204.38 360.497C148.851 354.175 90.4782 332.739 90.4782 236.945C90.4782 209.65 100.244 187.348 116.237 169.841C113.641 163.544 105.084 138.116 118.659 103.68C118.659 103.68 139.652 96.9613 187.427 129.307C207.369 123.767 228.756 120.989 250.002 120.894C271.248 120.989 292.652 123.767 312.631 129.307C360.348 96.9613 381.312 103.68 381.312 103.68C394.92 138.116 386.359 163.544 383.763 169.841C399.793 187.348 409.493 209.65 409.493 236.945C409.493 332.966 351.008 354.109 295.338 360.298C304.306 368.056 312.296 383.271 312.296 406.595C312.296 440.046 312.006 466.967 312.006 475.202C312.006 481.855 316.506 489.65 329.178 487.195C428.458 454.101 500 360.422 500 250.002C500 111.927 388.069 0 250.002 0ZM93.6339 356.133C93.0833 357.375 91.1292 357.748 89.3491 356.895C87.5358 356.079 86.5174 354.386 87.1052 353.14C87.6434 351.861 89.6016 351.505 91.4108 352.362C93.2282 353.177 94.2632 354.887 93.6339 356.133ZM105.931 367.106C104.739 368.211 102.408 367.698 100.827 365.951C99.1914 364.208 98.8851 361.877 100.094 360.755C101.323 359.65 103.584 360.167 105.223 361.91C106.859 363.674 107.177 365.988 105.931 367.106ZM114.368 381.145C112.836 382.209 110.331 381.211 108.783 378.988C107.251 376.765 107.251 374.099 108.816 373.031C110.368 371.963 112.836 372.923 114.405 375.13C115.933 377.39 115.933 380.056 114.368 381.145ZM128.635 397.405C127.265 398.916 124.347 398.51 122.21 396.448C120.024 394.432 119.416 391.571 120.79 390.06C122.177 388.545 125.112 388.972 127.265 391.017C129.434 393.029 130.097 395.91 128.635 397.405ZM147.075 402.894C146.471 404.852 143.66 405.742 140.828 404.91C138.001 404.053 136.15 401.759 136.721 399.78C137.309 397.81 140.133 396.882 142.985 397.773C145.808 398.625 147.663 400.902 147.075 402.894ZM168.06 405.222C168.131 407.284 165.73 408.993 162.757 409.031C159.768 409.097 157.35 407.429 157.317 405.4C157.317 403.318 159.665 401.624 162.654 401.575C165.626 401.517 168.06 403.173 168.06 405.222ZM188.676 404.432C189.032 406.444 186.966 408.51 184.014 409.06C181.112 409.59 178.426 408.348 178.057 406.353C177.697 404.291 179.8 402.225 182.698 401.691C185.654 401.178 188.299 402.387 188.676 404.432Z" />
+            </symbol>
+
+            <symbol id="rsschool-icon" viewBox="0 0 552.8 205.3">
+                <path class="rss"
+                      d="M285.4 68l26.3-1.7c.6 4.3 1.7 7.5 3.5 9.8 2.9 3.6 6.9 5.4 12.2 5.4 3.9 0 7-.9 9.1-2.8 2-1.5 3.2-3.9 3.2-6.4 0-2.4-1.1-4.7-3-6.2-2-1.8-6.7-3.6-14.1-5.2-12.1-2.7-20.8-6.3-25.9-10.9-5.1-4.3-8-10.6-7.8-17.3 0-4.6 1.4-9.2 4-13 3-4.3 7.1-7.7 12-9.6 5.3-2.3 12.7-3.5 22-3.5 11.4 0 20.1 2.1 26.1 6.4 6 4.2 9.6 11 10.7 20.3l-26 1.5c-.7-4-2.1-6.9-4.4-8.8s-5.3-2.8-9.2-2.8c-3.2 0-5.6.7-7.2 2-1.5 1.2-2.5 3-2.4 5 0 1.5.8 2.9 2 3.8 1.3 1.2 4.4 2.3 9.3 3.3 12.1 2.6 20.7 5.2 26 7.9 5.3 2.7 9.1 6 11.4 9.9 2.4 4 3.6 8.6 3.5 13.3 0 5.6-1.6 11.2-4.8 15.9-3.3 4.9-7.9 8.7-13.3 11-5.7 2.5-12.9 3.8-21.5 3.8-15.2 0-25.7-2.9-31.6-8.8S286.1 77 285.4 68zM6.3 97.6V8.2h46.1c8.5 0 15.1.7 19.6 2.2 4.4 1.4 8.3 4.3 10.9 8.2 2.9 4.3 4.3 9.3 4.2 14.5.3 8.8-4.2 17.2-11.9 21.6-3 1.7-6.3 2.9-9.7 3.5 2.5.7 5 1.9 7.2 3.3 1.7 1.4 3.1 3 4.4 4.7 1.5 1.7 2.8 3.6 3.9 5.6l13.4 25.9H63L48.2 70.2c-1.9-3.5-3.5-5.8-5-6.9-2-1.4-4.4-2.1-6.8-2.1H34v36.3H6.3zM34 44.4h11.7c2.5-.2 4.9-.6 7.3-1.2 1.8-.3 3.4-1.3 4.5-2.8 2.7-3.6 2.3-8.7-1-11.8-1.8-1.5-5.3-2.3-10.3-2.3H34v18.1zM0 174.2l26.3-1.7c.6 4.3 1.7 7.5 3.5 9.8 2.8 3.6 6.9 5.5 12.2 5.5 3.9 0 7-.9 9.1-2.8 2-1.6 3.2-3.9 3.2-6.4 0-2.4-1.1-4.7-3-6.2-2-1.8-6.7-3.6-14.2-5.2-12.1-2.7-20.8-6.3-25.9-10.9-5.1-4.3-8-10.6-7.8-17.3 0-4.6 1.4-9.2 4-13 3-4.3 7.1-7.7 12-9.6 5.3-2.3 12.7-3.5 22-3.5 11.4 0 20.1 2.1 26.1 6.4s9.5 11 10.6 20.3l-26 1.5c-.7-4-2.1-6.9-4.4-8.8-2.2-1.9-5.3-2.8-9.2-2.7-3.2 0-5.6.7-7.2 2.1-1.6 1.2-2.5 3-2.4 5 0 1.5.8 2.9 2 3.8 1.3 1.2 4.4 2.3 9.3 3.3 12.1 2.6 20.7 5.2 26 7.9 5.3 2.7 9.1 6 11.4 9.9 2.4 4 3.6 8.6 3.6 13.2 0 5.6-1.7 11.1-4.8 15.8-3.3 4.9-7.9 8.7-13.3 11-5.7 2.5-12.9 3.8-21.5 3.8-15.2 0-25.7-2.9-31.6-8.8-5.9-6-9.2-13.4-10-22.4z" />
+                <path class="ch"
+                      d="M133 167.2l24.2 7.3c-1.3 6.1-4 11.9-7.7 17-3.4 4.5-7.9 8-13 10.3-5.2 2.3-11.8 3.5-19.8 3.5-9.7 0-17.7-1.4-23.8-4.2-6.2-2.8-11.5-7.8-16-14.9-4.5-7.1-6.7-16.2-6.7-27.3 0-14.8 3.9-26.2 11.8-34.1s19-11.9 33.4-11.9c11.3 0 20.1 2.3 26.6 6.8 6.4 4.6 11.2 11.6 14.4 21l-24.4 5.4c-.6-2.1-1.5-4.2-2.7-6-1.5-2.1-3.4-3.7-5.7-4.9-2.3-1.2-4.9-1.7-7.5-1.7-6.3 0-11.1 2.5-14.4 7.6-2.5 3.7-3.8 9.6-3.8 17.6 0 9.9 1.5 16.7 4.5 20.4 3 3.7 7.2 5.5 12.7 5.5 5.3 0 9.3-1.5 12-4.4 2.7-3.1 4.7-7.4 5.9-13zm56.5-52.8h27.6v31.3h30.2v-31.3h27.8v89.4h-27.8v-36.2h-30.2v36.2h-27.6v-89.4z" />
+                <path class="oo"
+                      d="M271.3 159.1c0-14.6 4.1-26 12.2-34.1 8.1-8.1 19.5-12.2 34-12.2 14.9 0 26.3 4 34.4 12S364 144 364 158.4c0 10.5-1.8 19-5.3 25.7-3.4 6.6-8.7 12-15.2 15.6-6.7 3.7-15 5.6-24.9 5.6-10.1 0-18.4-1.6-25-4.8-6.8-3.4-12.4-8.7-16.1-15.2-4.1-7-6.2-15.7-6.2-26.2zm27.6.1c0 9 1.7 15.5 5 19.5 3.3 3.9 7.9 5.9 13.7 5.9 5.9 0 10.5-1.9 13.8-5.8s4.9-10.8 4.9-20.8c0-8.4-1.7-14.6-5.1-18.4-3.4-3.9-8-5.8-13.8-5.8-5.1-.2-10 2-13.4 5.9-3.4 3.9-5.1 10.4-5.1 19.5zm93.4-.1c0-14.6 4.1-26 12.2-34.1 8.1-8.1 19.5-12.2 34-12.2 14.9 0 26.4 4 34.4 12S485 144 485 158.4c0 10.5-1.8 19-5.3 25.7-3.4 6.6-8.7 12-15.2 15.6-6.7 3.7-15 5.6-24.9 5.6-10.1 0-18.4-1.6-25-4.8-6.8-3.4-12.4-8.7-16.1-15.2-4.1-7-6.2-15.7-6.2-26.2zm27.6.1c0 9 1.7 15.5 5 19.5 3.3 3.9 7.9 5.9 13.7 5.9 5.9 0 10.5-1.9 13.8-5.8 3.3-3.9 4.9-10.8 4.9-20.8 0-8.4-1.7-14.6-5.1-18.4-3.4-3.9-8-5.8-13.8-5.8-5.1-.2-10.1 2-13.4 5.9-3.4 3.9-5.1 10.4-5.1 19.5z" />
+                <path class="l" d="M482.1 114.4h27.6v67.4h43.1v22H482v-89.4z" />
+                <ellipse class="rss" fill="none" stroke-width="2px" transform="rotate(-37.001 420.46 67.88)" cx="420.5" cy="67.9" rx="63" ry="51.8" />
+                <path class="js" fill="var(--jsColor)"
+                      d="M392.4 61.3l10-7 12.3 17.5c2.1 2.8 3.7 5.8 4.9 9.1.7 2.5.5 5.2-.5 7.6-1.3 3-3.4 5.5-6.2 7.3-3.3 2.3-6.1 3.6-8.5 4-2.3.4-4.7 0-6.9-1-2.4-1.2-4.5-2.9-6.1-5.1l8.6-8c.7 1.1 1.6 2.1 2.6 2.9.7.5 1.5.8 2.4.8.7 0 1.4-.3 1.9-.7 1-.6 1.7-1.8 1.6-3-.3-1.7-1-3.4-2.1-4.7l-14-19.7zm30 11.1l9.1-7.2c1 1.2 2.3 2.1 3.7 2.6 2 .6 4.1.2 5.8-1.1 1.2-.8 2.2-1.9 2.6-3.3.6-1.8-.4-3.8-2.2-4.4-.3-.1-.6-.2-.9-.2-1.2-.1-3.3.4-6.4 1.7-5.1 2.1-9.1 2.9-12.1 2.6-2.9-.3-5.6-1.8-7.2-4.3-1.2-1.7-1.8-3.7-1.9-5.7 0-2.3.6-4.6 1.9-6.5 1.9-2.7 4.2-5 7-6.8 4.2-2.9 7.9-4.3 11.1-4.3 3.2 0 6.2 1.5 9 4.6l-9 7.1c-1.8-2.3-5.2-2.8-7.5-1l-.3.3c-1 .6-1.7 1.5-2.1 2.6-.3.8-.1 1.7.4 2.4.4.5 1 .9 1.7.9.8.1 2.2-.3 4.2-1.2 5-2.1 8.8-3.3 11.4-3.7 2.2-.4 4.5-.2 6.6.7 1.9.8 3.5 2.2 4.6 3.9 1.4 2 2.2 4.4 2.3 6.9.1 2.6-.6 5.1-2 7.3-1.8 2.7-4.1 5-6.8 6.8-5.5 3.8-10 5.4-13.6 4.8-3.9-.6-7.1-2.6-9.4-5.5z" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <svg id="header-icons" class="svg-symbols hidden">
+        <defs>
+            <symbol id="results-icon" viewBox="0 0 1792 1792">
+                <path d=" M384 1184v64q0 13-9.5 22.5t-22.5 9.5h-64q-13 0-22.5-9.5t-9.5-22.5v-64q0-13 9.5-22.5t22.5-9.5h64q13 0 22.5 9.5t9.5 22.5zm0-256v64q0 13-9.5 22.5t-22.5 9.5h-64q-13
+                    0-22.5-9.5t-9.5-22.5v-64q0-13 9.5-22.5t22.5-9.5h64q13 0 22.5 9.5t9.5 22.5zm0-256v64q0 13-9.5 22.5t-22.5 9.5h-64q-13 0-22.5-9.5t-9.5-22.5v-64q0-13 9.5-22.5t22.5-9.5h64q13 0 22.5
+                    9.5t9.5 22.5zm1152 512v64q0 13-9.5 22.5t-22.5 9.5h-960q-13 0-22.5-9.5t-9.5-22.5v-64q0-13 9.5-22.5t22.5-9.5h960q13 0 22.5 9.5t9.5 22.5zm0-256v64q0 13-9.5 22.5t-22.5 9.5h-960q-13
+                    0-22.5-9.5t-9.5-22.5v-64q0-13 9.5-22.5t22.5-9.5h960q13 0 22.5 9.5t9.5 22.5zm0-256v64q0 13-9.5 22.5t-22.5 9.5h-960q-13 0-22.5-9.5t-9.5-22.5v-64q0-13 9.5-22.5t22.5-9.5h960q13 0 22.5
+                    9.5t9.5 22.5zm128 704v-832q0-13-9.5-22.5t-22.5-9.5h-1472q-13 0-22.5 9.5t-9.5 22.5v832q0 13 9.5 22.5t22.5 9.5h1472q13 0 22.5-9.5t9.5-22.5zm128-1088v1088q0 66-47 113t-113
+                    47h-1472q-66 0-113-47t-47-113v-1088q0-66 47-113t113-47h1472q66 0 113 47t47 113z" />
+            </symbol>
+
+            <symbol id="info-icon" viewBox="0 0 24 24">
+                <g>
+                    <path
+                          d="M12,5.511c0.561,0,1.119,0.354,1.544,1.062l5.912,9.854C20.307,17.842,19.65,19,18,19H6c-1.65,0-2.307-1.159-1.456-2.573   l5.912-9.854C10.881,5.865,11.439,5.511,12,5.511 M12,3.511c-1.296,0-2.482,0.74-3.259,2.031l-5.912,9.856   c-0.786,1.309-0.872,2.705-0.235,3.83S4.473,21,6,21h12c1.527,0,2.77-0.646,3.406-1.771s0.551-2.521-0.235-3.83l-5.912-9.854   C14.482,4.251,13.296,3.511,12,3.511z" />
+                </g>
+                <g>
+                    <path
+                          d="M13.5,16.748c0,0-0.711,0.361-1.075,0.182c-0.362-0.184-0.434-0.541-0.229-1.152l0.406-1.221   c0.403-1.221-0.121-2.076-1.082-2.131c-1.258-0.07-2.02,0.826-2.02,0.826s0.71-0.365,1.075-0.182   c0.362,0.184,0.432,0.541,0.229,1.152l-0.406,1.221c-0.405,1.221,0.119,2.074,1.082,2.131C12.738,17.645,13.5,16.748,13.5,16.748z" />
+                </g>
+                <g>
+                    <circle cx="12" cy="10" r="1.301" />
+                </g>
+            </symbol>
+        </defs>
+    </svg>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>
