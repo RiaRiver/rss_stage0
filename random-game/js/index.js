@@ -7,6 +7,7 @@ import { resetGame, startGame } from './game.js';
 import initModals from './modal.js';
 import handleKeyPress from './keyControls.js';
 import { viewResults } from './results.js';
+import printSelfcheck from './selfcheck.js';
 
 const changeDifficulty = (event) => {
   const difficulty = event.target.value;
@@ -50,3 +51,5 @@ const start = () => {
 };
 
 document.addEventListener('DOMContentLoaded', start);
+
+printSelfcheck();
